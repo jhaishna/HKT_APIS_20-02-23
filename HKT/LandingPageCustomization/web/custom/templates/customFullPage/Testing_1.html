@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript"><!-- comment -->
+        function GenerateTable() {
+        
+        
+        var customers = new Array();
+        customers.push(["CREATED_T","ADJCODE","English Description","Chinese Description","GLID"]);
+        
+        //Build an array containing Customer records.
+      var data = {
+    "errorCode": null,
+    "errorDescription": null,
+    "requestStatus": "1",
+    "results": [
+        {
+            "createdDate": "Mon Oct 04 12:25:18 HKT 2021",
+            "adjustmentCode": "11",
+            "englishDescription": "Charge Waiving",
+            "chineseDescription": "??/???? ??",
+            "glid": "1450804"
+        },
+        {
+            "createdDate": "Mon Oct 04 12:25:18 HKT 2021",
+            "adjustmentCode": "12",
+            "englishDescription": "Charge Waiving22",
+            "chineseDescription": "??/???? ??",
+            "glid": "145080422"
+        }
+    ]
+}
+
+     // var myJSON = JSON.stringify(response);  
+ 
+        //Create a HTML Table element.
+        var table = document.createElement("TABLE");
+        table.border = "1";
+ 
+        //Get the count of columns.
+        var columnCount = customers[0].length;
+ 
+        //Add the header row.
+        var row = table.insertRow(-1);
+        for (var i = 0; i < columnCount; i++) {
+            var headerCell = document.createElement("TH");
+            headerCell.innerHTML = customers[0][i];
+            row.appendChild(headerCell);
+        }
+            
+           // var tempArray = new Array();
+ 
+       if (data.results && data.results.length) {
+        for (var i = 0; i < data.results.length; i++) {
+             //for (var j = 0; j < data.results[i].column.length; j++) {
+              //  tempArray.push(data.results[i].column[j].value);
+               // if(j === data.results[i].column.length-1) {
+                    customers.push([data.results[i].createdDate,data.results[i].adjustmentCode,data.results[i].englishDescription,data.results[i].chineseDescription,data.results[i].glid]);
+                   // tempArray = new Array();
+               // }
+            // }
+        }
+        }
+        
+      //  alert(tempArray);
+       // alert(customers);
+ 
+        //Add the data rows.
+        for (var i = 1; i < customers.length; i++) {
+            row = table.insertRow(-1);
+            for (var j = 0; j < columnCount; j++) {
+                var cell = row.insertCell(-1);
+                cell.innerHTML = customers[i][j];
+            }
+        }
+ 
+        var dvTable = document.getElementById("dvTable");
+        dvTable.innerHTML = "";
+        dvTable.appendChild(table);
+    }
+</script>
+        
+    </head>
+    <body>
+       <input type="button" value="Generate Table" onclick="GenerateTable()" />
+<hr />
+<div id="dvTable"></div>
+    </body>
+</html>

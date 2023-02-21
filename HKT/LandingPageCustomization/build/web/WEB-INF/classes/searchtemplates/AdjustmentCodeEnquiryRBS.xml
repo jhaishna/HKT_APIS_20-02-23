@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+   Template to search /strings table to fetch the reason codes
+-->
+<searchTemplate xmlns="http://xmlns.oracle.com/cgbu/schemas/BusinessObjs">
+    <returnStorableClass>/rbs_strings</returnStorableClass>
+    <defaultStepSize>200</defaultStepSize>
+    <globalSearch>true</globalSearch>
+    <searchcriterias>
+        <criteria name="Domain">
+            <label>Domain</label>
+            <field>FldDomain</field>
+            <storableClass>/rbs_strings</storableClass>   
+        </criteria>
+        <criteria name="Description">
+            <label>Description</label>
+            <field>FldString</field>
+            <storableClass>/rbs_strings</storableClass>   
+        </criteria>
+         <criteria name="AdjustmentCode">
+            <label>AdjustmentCode</label>
+            <field>FldStringId</field>
+            <storableClass>/rbs_strings</storableClass>   
+        </criteria>
+    </searchcriterias>
+    <searchresults>
+        <result name="CreatedDate">
+            <field>FldCreatedT</field>
+        </result> 
+        <result name="AdjustmentCode">
+            <field>FldStringId</field>
+        </result> 
+        <result name="Description">
+            <field>FldString</field>
+        </result>  
+        <result name="ChineseDescription">
+           <field>FldReasonCode</field>
+        </result>  
+        <result name="GLID">
+           <field>FldGlid</field>
+        </result>              
+    </searchresults>
+</searchTemplate>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"> </script>
+       <script type="text/javascript">
+           function ajaxCall() {
+                var searchOptions = document.getElementById("searchOptionsId");
+                if(searchOptions.value === "arc") {
+                    var reasonCodeValue = document.getElementById("reasonCodeInput").value;
+                    if(reasonCodeValue == "" || reasonCodeValue == null) {
+                        alert("Please enter valid Input");
+                        return;
+                    }
+                    if(reasonCodeValue && !/^[0-9%]+$/.test(reasonCodeValue)){
+                        alert("Only numbers are allowed for Reason Code");
+                        return;
+                    }
+                }
+                if(searchOptions.value === "acr") {
+                    var prefixAdjustmentValue = document.getElementById("adjustmentPrefixInput").value;
+                    if(prefixAdjustmentValue == "" || prefixAdjustmentValue == null) {
+                        alert("Please enter valid Input");
+                        return;
+                    }
+                    if(prefixAdjustmentValue && !/^[0-9%]+$/.test(prefixAdjustmentValue)){
+                        alert("Only numbers are allowed for Prefix of Adjustment");
+                        return;
+                    }
+                }
+                if(searchOptions.value === "eDesc") {
+                    var englishDescriptionValue = document.getElementById("descriptionInput").value;
+                    if(englishDescriptionValue == "" || englishDescriptionValue == null) {
+                        alert("Please enter valid Input");
+                        return;
+                    }
+                }
+                if(searchOptions.value === "glid") {
+                    var glidValue = document.getElementById("glidInput").value;
+                    if(glidValue == "" || glidValue == null) {
+                        alert("Please enter valid Input");
+                        return;
+                    }
+                    if(glidValue && !/^[0-9%]+$/.test(glidValue)){
+                        alert("Only numbers are allowed for GLID");
+                        return;
+                    }
+                }
+               
+                
+            $.ajax({
+                    type: "POST",
+                    url: "http://10.166.4.65:8001/BillingCareAPI/adjustmentCodeSearch",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({
+                        reasonCode : reasonCodeValue,
+                        prefixAdjustment : prefixAdjustmentValue,
+                        description : englishDescriptionValue,
+                        glid : glidValue
+                    }),
+                    processData: false,
+                   // beforeSend: function (xhr) {
+                   //   util.setRequestHeader(xhr)
+                   // },
+                    dataType: "json",
+  
+                // Function to call when to process response in case of request is ok 
+                success: function (data) {
+                    console.log(data); 
+
+                var customers = new Array();
+                customers.push(["Creation Date","Adjustment Code","English Description","Chinese Description","GLID"]);
+                    
+                // Dynamic Table Start
+                    
+                //Create a HTML Table element.
+                var table = document.createElement("TABLE");
+                table.setAttribute("id", "dynamicTableId")
+                table.border = "1";
+        
+                console.log(customers);
+                //Get the count of columns.
+                var columnCount = customers[0].length;
+                console.log("columnCount.."+columnCount);
+                //Add the header row.
+                var row = table.insertRow(-1);
+                for (var i = 0; i < columnCount; i++) {
+                    var headerCell = document.createElement("TH");
+                    headerCell.innerHTML = customers[0][i];
+                    row.appendChild(headerCell);
+                }
+            
+                    if (data.results && data.results.length) {
+                        for (var i = 0; i < data.results.length; i++) {
+                            customers.push([data.results[i].createdDate,data.results[i].adjustmentCode,data.results[i].englishDescription,data.results[i].chineseDescription,data.results[i].glid]);
+                        }
+
+                        //Add the data rows.
+                        for (var i = 1; i < customers.length; i++) {
+                            row = table.insertRow(-1);
+                            for (var j = 0; j < columnCount; j++) {
+                                var cell = row.insertCell(-1);
+                                cell.innerHTML = customers[i][j];
+                            }
+                        }
+
+                        var dynamicTable = document.getElementById("dynamicTable");
+                        dynamicTable.innerHTML = "";
+                        dynamicTable.appendChild(table);
+                        dynamicTable.style.display="";
+                        var exportIdButton = document.getElementById("exportId");
+                        exportIdButton.style.display="";
+                        var noDataMessage = document.getElementById("noDataMessage");
+                        noDataMessage.style.display="none";
+                        var errorLabel = document.getElementById("dynamicErrorLabel");
+                        errorLabel.style.display="none";
+                    } else if(data.results && data.results.length == 0) {
+                        var dynamicTableObj = document.getElementById("dynamicTable");
+                        dynamicTableObj.style.display="none";
+                        var noDataMessage = document.getElementById("noDataMessage");
+                        noDataMessage.style.display="";
+                        var errorLabel = document.getElementById("dynamicErrorLabel");
+                        errorLabel.style.display="none";
+                    }
+                },
+  
+                // Error handling 
+                error: function (error) {
+                    console.log("ERROR Response::"+error);
+                    if(error.responseJSON && error.responseJSON.errorCode && error.responseJSON.errorDescription) {
+                       var errorLabel = document.getElementById("dynamicErrorLabel");
+                        errorLabel.innerHTML=error.responseJSON.errorDescription;
+                        errorLabel.style.display="";
+                        if(error.responseJSON.results && error.responseJSON.results.length == 0) {
+                            var dynamicTableObj = document.getElementById("dynamicTable");
+                            dynamicTableObj.style.display="none";
+                            var noDataMessage = document.getElementById("noDataMessage");
+                            noDataMessage.style.display="none";
+                        }
+                    }
+                }
+            });
+        }
+
+    function changeDisplay() {
+        var searchOptions = document.getElementById("searchOptionsId");
+        var reasonCodeLabel = document.getElementById("reasonCodeLabel");
+        var reasonCodeEg = document.getElementById("reasonCodeEg");
+        var reasonCodeInput = document.getElementById("reasonCodeInput");
+        var adjustmentPrefixLabel = document.getElementById("adjustmentPrefixLabel");
+        var adjustmentPrefixInput = document.getElementById("adjustmentPrefixInput");
+        var adjustmentPrefixEg = document.getElementById("adjustmentPrefixEg");
+        var descriptionLabel = document.getElementById("descriptionLabel");
+        var descriptionInput = document.getElementById("descriptionInput");
+        var englishEg = document.getElementById("englishEg");
+        var glidLabel = document.getElementById("glidLabel");
+        var glidInput = document.getElementById("glidInput");
+        var glidEg = document.getElementById("glidEg");
+        var searchId = document.getElementById("searchId");
+        var cancelId = document.getElementById("cancelId");
+        var exitId = document.getElementById("exitId");
+        var noDataMessage = document.getElementById("noDataMessage");
+        var errorLabel = document.getElementById("dynamicErrorLabel");
+         
+
+        reasonCodeInput.value = "";
+        adjustmentPrefixInput.value ="";
+        descriptionInput.value = "";
+        glidInput.value = "";
+        
+          //Update this to your logic...
+          if(searchOptions.value === "arc") {
+            reasonCodeLabel.style.display="";
+            reasonCodeInput.style.display="";
+            reasonCodeEg.style.display="";
+            adjustmentPrefixLabel.style.display = 'none';
+            adjustmentPrefixInput.style.display = 'none';
+            adjustmentPrefixEg.style.display = 'none';
+            descriptionLabel.style.display = 'none';
+            descriptionInput.style.display = 'none';
+            englishEg.style.display = 'none';
+            glidEg.style.display = 'none';
+            glidLabel.style.display = 'none';
+            glidInput.style.display = 'none';
+          } else if(searchOptions.value === "acr") {
+            adjustmentPrefixLabel.style.display = "";
+            adjustmentPrefixInput.style.display = "";
+            adjustmentPrefixEg.style.display = "";
+            reasonCodeLabel.style.display = 'none';
+            reasonCodeInput.style.display = 'none';
+            reasonCodeEg.style.display = 'none';
+            descriptionLabel.style.display = 'none';
+            descriptionInput.style.display = 'none';
+            englishEg.style.display = 'none';
+            glidLabel.style.display = 'none';
+            glidInput.style.display = 'none';
+            glidEg.style.display = 'none';
+          } else if(searchOptions.value === "eDesc") {
+            descriptionLabel.style.display = "";
+            descriptionInput.style.display = "";
+            englishEg.style.display = "";
+            reasonCodeLabel.style.display = 'none';
+            reasonCodeInput.style.display = 'none';
+            reasonCodeEg.style.display = 'none';
+            adjustmentPrefixLabel.style.display = 'none';
+            adjustmentPrefixInput.style.display = 'none';
+            adjustmentPrefixEg.style.display = 'none';
+            glidLabel.style.display = 'none';
+            glidInput.style.display = 'none';
+            glidEg.style.display = 'none';
+          } else if(searchOptions.value === "glid") {
+            glidLabel.style.display = "";
+            glidInput.style.display = "";
+            glidEg.style.display = "";
+            reasonCodeLabel.style.display = 'none';
+            reasonCodeInput.style.display = 'none';
+            reasonCodeEg.style.display = 'none';
+            adjustmentPrefixLabel.style.display = 'none';
+            adjustmentPrefixInput.style.display = 'none';
+            adjustmentPrefixEg.style.display = 'none';
+            descriptionLabel.style.display = 'none';
+            descriptionInput.style.display = 'none';
+            englishEg.style.display = 'none';
+          }
+          
+          if(searchOptions.value === "glid" || searchOptions.value === "eDesc" || searchOptions.value === "acr" || searchOptions.value === "arc") {
+            searchId.style.display = "";
+            cancelId.style.display = "";
+            exitId.style.display = "";
+          }
+          
+          if(searchOptions.value === "0") {
+            searchId.style.display = "none";
+            cancelId.style.display = "none";
+            exitId.style.display = "";
+            glidLabel.style.display = 'none';
+            glidInput.style.display = 'none';
+            reasonCodeLabel.style.display = 'none';
+            reasonCodeInput.style.display = 'none';
+            adjustmentPrefixLabel.style.display = 'none';
+            adjustmentPrefixInput.style.display = 'none';
+            descriptionLabel.style.display = 'none';
+            descriptionInput.style.display = 'none';
+            reasonCodeEg.style.display = 'none';
+            adjustmentPrefixEg.style.display = 'none';
+            englishEg.style.display = 'none';
+            glidEg.style.display = 'none';
+            noDataMessage.style.display="none";
+            errorLabel.style.display="none";
+          }
+    }
+        
+        
+        function search() { 
+            var dataTable = document.getElementById("dynamicTable");
+            dataTable.innerHTML = "";
+            dataTable.style.display = 'none';
+            ajaxCall();
+        }
+        
+        function cancel() {
+            var searchOptions = document.getElementById("searchOptionsId");
+            var reasonCodeLabel = document.getElementById("reasonCodeLabel");
+            var reasonCodeInput = document.getElementById("reasonCodeInput");
+            var adjustmentPrefixLabel = document.getElementById("adjustmentPrefixLabel");
+            var adjustmentPrefixInput = document.getElementById("adjustmentPrefixInput");
+            var descriptionLabel = document.getElementById("descriptionLabel");
+            var descriptionInput = document.getElementById("descriptionInput");
+            var glidLabel = document.getElementById("glidLabel");
+            var glidInput = document.getElementById("glidInput");
+            var searchId = document.getElementById("searchId");
+            var cancelId = document.getElementById("cancelId");
+            var exportId = document.getElementById("exportId");
+            var reasonCodeEg = document.getElementById("reasonCodeEg");
+            var adjustmentPrefixEg = document.getElementById("adjustmentPrefixEg");
+            var englishEg = document.getElementById("englishEg");
+            var glidEg = document.getElementById("glidEg");
+            var exitButtonDTId = document.getElementById("exitButtonDTId");
+            var searchButtonDTId = document.getElementById("searchButtonDTId");
+            var exportDTId = document.getElementById("exportDTId");
+            var noDataMessage = document.getElementById("noDataMessage");
+            var errorLabel = document.getElementById("dynamicErrorLabel");
+            errorLabel.style.display="none";
+            searchId.style.display = "none";
+            cancelId.style.display = "none";
+            exportId.style.display = "none";
+            glidLabel.style.display = 'none';
+            glidInput.style.display = 'none';
+            reasonCodeLabel.style.display = 'none';
+            reasonCodeInput.style.display = 'none';
+            adjustmentPrefixLabel.style.display = 'none';
+            adjustmentPrefixInput.style.display = 'none';
+            descriptionLabel.style.display = 'none';
+            descriptionInput.style.display = 'none';
+            searchOptions.value = "0";
+            reasonCodeEg.style.display = 'none';
+            adjustmentPrefixEg.style.display = 'none';
+            englishEg.style.display = 'none';
+            glidEg.style.display = 'none';
+            var dataTable = document.getElementById("dynamicTable");
+            dataTable.innerHTML = "";
+            dataTable.style.display = 'none';
+            exitButtonDTId.style.display = "none";
+            searchButtonDTId.style.display = "none";
+            exportDTId.style.display = "none";
+            noDataMessage.style.display="none";
+        }
+        
+        function cancelReverse() {
+            var searchOptions = document.getElementById("searchOptionsId");
+            var reasonCodeLabel = document.getElementById("reasonCodeLabel");
+            var reasonCodeInput = document.getElementById("reasonCodeInput");
+            var adjustmentPrefixLabel = document.getElementById("adjustmentPrefixLabel");
+            var adjustmentPrefixInput = document.getElementById("adjustmentPrefixInput");
+            var descriptionLabel = document.getElementById("descriptionLabel");
+            var descriptionInput = document.getElementById("descriptionInput");
+            var glidLabel = document.getElementById("glidLabel");
+            var glidInput = document.getElementById("glidInput");
+            var searchId = document.getElementById("searchId");
+            var cancelId = document.getElementById("cancelId");
+            var exportId = document.getElementById("exportId");
+            var reasonCodeEg = document.getElementById("reasonCodeEg");
+            var adjustmentPrefixEg = document.getElementById("adjustmentPrefixEg");
+            var englishEg = document.getElementById("englishEg");
+            var glidEg = document.getElementById("glidEg");
+            var exitButtonDTId = document.getElementById("exitButtonDTId");
+            var searchButtonDTId = document.getElementById("searchButtonDTId");
+            var exportDTId = document.getElementById("exportDTId");
+            var searchTable = document.getElementById("searchTable");
+            searchTable.style.display="";
+            searchId.style.display = "none";
+            cancelId.style.display = "none";
+            exportId.style.display = "";
+            glidLabel.style.display = 'none';
+            glidInput.style.display = 'none';
+            reasonCodeLabel.style.display = 'none';
+            reasonCodeInput.style.display = 'none';
+            adjustmentPrefixLabel.style.display = 'none';
+            adjustmentPrefixInput.style.display = 'none';
+            descriptionLabel.style.display = 'none';
+            descriptionInput.style.display = 'none';
+            searchOptions.value = "0";
+            reasonCodeEg.style.display = 'none';
+            adjustmentPrefixEg.style.display = 'none';
+            englishEg.style.display = 'none';
+            glidEg.style.display = 'none';
+            var dataTable = document.getElementById("dynamicTable");
+            dataTable.innerHTML = "";
+            dataTable.style.display = 'none';
+            exitButtonDTId.style.display = "none";
+            searchButtonDTId.style.display = "none";
+            exportDTId.style.display = "none";
+        }
+        
+        function exportExcel(tableID, filename = '') {
+            var downloadLink;
+            var dataType = 'application/vnd.ms-excel';
+            var tableSelect = document.getElementById(tableID);
+            var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    
+            // Specify file name
+            filename = filename?filename+'.xls':'excel_data.xls';
+    
+            // Create download link element
+            downloadLink = document.createElement("a");
+    
+            document.body.appendChild(downloadLink);
+    
+            if(navigator.msSaveOrOpenBlob){
+                var blob = new Blob(['\ufeff', tableHTML], {
+                    type: dataType
+                });
+                navigator.msSaveOrOpenBlob( blob, filename);
+            } else {
+                // Create a link to the file
+                downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+                // Setting the file name
+                downloadLink.download = filename;
+
+                //triggering the function
+                downloadLink.click();
+            }
+        }
+        
+        function screenExit() {
+            cancel();
+            window.history.back();
+        }
+        
+        function showSearchTable() {
+             cancelReverse();
+        }
+       </script>
+        <script type="text/javascript">
+            var exitButtonDTId = document.getElementById("exitButtonDTId");
+            var searchButtonDTId = document.getElementById("searchButtonDTId");
+            var exportDTId = document.getElementById("exportDTId");
+            exitButtonDTId.style.display = "none";
+            searchButtonDTId.style.display = "none";
+            exportDTId.style.display = "none";
+                $.ajax({
+                    type: "POST",
+                    url: "http://10.166.4.65:8001/BillingCareAPI/adjustmentCodeSearch",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({
+                        prefixAdjustment : "%",
+                    }),
+                    processData: false,
+                    dataType: "json",
+  
+                // Function to call when to process response in case of request is ok 
+                success: function (data) {
+                console.log(data); 
+
+                var customers = new Array();
+                customers.push(["Creation Date","Adjustment Code","English Description","Chinese Description","GLID"]);
+                    
+                // Dynamic Table Start
+                    
+                //Create a HTML Table element.
+                var table = document.createElement("TABLE");
+                table.setAttribute("id", "dynamicTableId")
+                table.border = "1";
+        
+                console.log(customers);
+                //Get the count of columns.
+                var columnCount = customers[0].length;
+                console.log("columnCount.."+columnCount);
+                //Add the header row.
+                var row = table.insertRow(-1);
+                for (var i = 0; i < columnCount; i++) {
+                    var headerCell = document.createElement("TH");
+                    headerCell.innerHTML = customers[0][i];
+                    row.appendChild(headerCell);
+                }
+            
+                if (data.results && data.results.length) {
+                    for (var i = 0; i < data.results.length; i++) {
+                        customers.push([data.results[i].createdDate,data.results[i].adjustmentCode,data.results[i].englishDescription,data.results[i].chineseDescription,data.results[i].glid]);
+                    }
+                
+       
+        
+                //Add the data rows.
+                for (var i = 1; i < customers.length; i++) {
+                    row = table.insertRow(-1);
+                    for (var j = 0; j < columnCount; j++) {
+                        var cell = row.insertCell(-1);
+                        cell.innerHTML = customers[i][j];
+                    }
+                }
+ 
+                var dynamicTable = document.getElementById("dynamicTable");
+                dynamicTable.innerHTML = "";
+                dynamicTable.appendChild(table);
+                dynamicTable.style.display="";
+                var exportIdButton = document.getElementById("exportId");
+                exportIdButton.style.display="";
+                var noDataMessage = document.getElementById("noDataMessage");
+                noDataMessage.style.display="none";
+                exitButtonDTId.style.display = "";
+                searchButtonDTId.style.display = "";
+                exportDTId.style.display = "";
+                } else if(data.results && data.results.length == 0) {
+                        var dynamicTableObj = document.getElementById("dynamicTable");
+                        dynamicTableObj.style.display="none";
+                        var noDataMessage = document.getElementById("noDataMessage");
+                        noDataMessage.style.display="";
+                } },
+  
+                // Error handling 
+                error: function (error) {
+                    console.log("ERROR Response::"+error);
+                    if(error.errorCode && error.errorDescription) {
+                        var errorLabel = document.getElementById("dynamicErrorLabel");
+                        errorLabel.innerHTML=error.errorDescription;
+                        errorLabel.style.display="";
+                        if(error.results && error.results.length == 0) {
+                            var dynamicTableObj = document.getElementById("dynamicTable");
+                            dynamicTableObj.style.display="none";
+                            var noDataMessage = document.getElementById("noDataMessage");
+                            noDataMessage.style.display="none";
+                        }
+                    }
+                }
+            });
+        </script>
+    </head>
+<body>
+    <form id="AdjustmentCodeEnquiry" name="AdjustmentCodeEnquiryForm" autocomplete="off">
+    <br>
+    <center>  <h1><u>Adjustment Code Enquiry</u></h1> </center>  <br><br>
+    <center>
+        <table id="searchTable" border="1" width="50%" cellpadding="1" cellspacing="0" bordercolor="#00A2E8" bgcolor="white" align="center" style="display: none;">
+             <tr align="center">
+                 <td >
+                    <label style="font-size:20px;">Search :</label>
+                    <select name="searchOptions" id="searchOptionsId" onchange="changeDisplay()" style="width:280px;font-size:15px;">
+                      <option value="0" style="width:230px;font-size:15px;">Select Search Options</option>
+                      <option value="arc" style="width:230px;font-size:15px;">Adjustment Reason Code</option>
+                      <option value="acr" style="width:230px;font-size:15px;">Prefix of Adjustment</option>
+                      <option value="eDesc" style="width:230px;font-size:15px;">English Description</option>
+                      <option value="glid" style="width:230px;font-size:15px;">GLID</option>
+                    </select>
+                 </td>
+             </tr>
+             <tr align="center">
+                 <td>
+                     <br/><br/>
+                    <label id="reasonCodeLabel" style="display:none;font-size:15px;">Adjustment Reason Code :</label>
+                    <input type="text" name="reasonCode" id="reasonCodeInput" style="display: none;width:250px;"/><label id="reasonCodeEg" style="display: none;font-size:10px;">Only Numbers allowed.Eg:(0-9)</label>
+
+                    <label id="adjustmentPrefixLabel" style="display:none;font-size:15px;">Prefix of Adjustment:</label>
+                    <input type="text" name="adjustmentPrefix" id="adjustmentPrefixInput" style="display: none;width:250px;"/><label id="adjustmentPrefixEg" style="display: none;font-size:10px;">Only Numbers allowed.Eg:(0-9).Enter '%' to get the FullList</label>
+
+                    <label id="descriptionLabel" style="display:none;font-size:15px;">English Description : </label>
+                    <input type="text" name="description" id="descriptionInput" style="display: none;width:250px;"/><label id="englishEg" style="display: none;font-size:10px;">Please enter any string. eg: telecom</label>
+
+                    <label id="glidLabel" style="display:none;font-size:15px;">GLID :            </label>
+                    <input type="text" name="glid" id="glidInput" style="display: none;width:250px;"/><label id="glidEg" style="display: none;font-size:10px;">Only Numbers allowed.Eg:(0-9)</label><br/><br/><br/>
+
+                    <input type="button" value="Search" id="searchId" style="display: none;background-color: #00A2E8;border-color:black" onclick='search();'/>
+                    <input type="button" value="Cancel" id="cancelId" style="display: none;background-color: #00A2E8;border-color:black" onclick='cancel();'/>
+                    <input type="button" value="Exit" id="exitId" style="display: none;background-color: #00A2E8;border-color:black" onclick='screenExit();'/>
+                    <input type="button" value="Export" id="exportId" style="display: none;background-color: #00A2E8;border-color:black" onclick="exportExcel('dynamicTableId','adjustments-data');"/>
+                 </td>
+             </tr>
+             <tr align="center">
+                 <br/><br/>
+                  <td><label id="dynamicErrorLabel" style="display: none;font-size:12px;color:red"></label></td>
+                  <td><label id="noDataMessage" style="display: none;font-size:12px;color:red"> No Data Found !!!</label></td>
+             </tr>
+        </table> 
+    </center>
+    
+<br/><br/><br/>
+
+<!-- Dynamic Table -->
+
+<center>
+        <div id="dynamicTable" style="display: none;overflow:scroll;overflow-x:hidden;width:50%;height:300px;border-top-color: #00A2E8;border-right-color: #00A2E8;border-bottom-color: #00A2E8;border-left-color: #00A2E8;"></div>
+        <br/><br/>
+        <input id="exitButtonDTId" type="button" value="Exit" style="background-color: #00A2E8;border-color:black" onclick='screenExit();'/>
+        <input id="searchButtonDTId" type="button" value="Search" style="background-color: #00A2E8;border-color:black" onclick='showSearchTable();'/>
+        <input id="exportDTId" type="button" value="Export" style="background-color: #00A2E8;border-color:black" onclick="exportExcel('dynamicTableId','adjustments-data');"/>
+    
+</center>
+
+<br/><br/>
+
+</form>
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,2813 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript"><!-- comment -->
+        function GenerateTable() {
+        
+        
+        var customers = new Array();
+        customers.push(["ADJCODE", "Version", "English Description"]);
+        
+        //Build an array containing Customer records.
+      var response = {
+    "extension": null,
+    "results": [
+        {
+            "column": [
+                {
+                    "value": "112",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "61",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Job Template Object Is Not Active",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "3",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Credit limit/credit card problems",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "7",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Good credit, limit exceeded often",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1001",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Invalid Card",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1022",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Card is bad, but passes Mod 10 check digit routine ",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1025",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Hard Decline",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "4",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "6",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Charged account by mistake",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "32",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer not satisfied with the service",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "42",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Billinfo Write-off",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "43",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Update to the Invoice Address",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "AC01",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "10",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "MD01",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "14",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "MS03",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "16",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "RR01",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "2",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer paid overdue charges",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "3",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "4",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Not satisfied with service",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "23",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "SL01",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "52",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "MS02",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "54",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Manual activation",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "111",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "61",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "GL UnBilled Unearned Report Generation Failed",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "4001",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "16",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Reversal due to recycling",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "4001",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "16",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Reversal due to recycling",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "11",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Legal Review Pending",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "3999",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "15",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Default Action Owner ",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "3",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer requested inactivation",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "9",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer could not be reached",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "10",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer promised to pay by specified date",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "3",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "10",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer did not receive original dunning",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "3",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "9",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer did not receive original dunning",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1005",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Insufficient funds/over credit limit",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1026",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "No amount to be charged",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1029",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Invalid CVV",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2004",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "14",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Invalid Transaction Id ",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2008",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "14",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "MBI Distributed Payment ",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "23",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer not satisfied with the service",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "37",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer not satisfied with the service",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "46",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Re-establish service",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "12",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "MD07",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "3",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "53",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer Information ",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "108",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "61",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "GL Billed UnEarned Report Generation Failed",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "110",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "61",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "GL UnBilled Earned Report Generation Failed",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "12",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "5",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Validated credit card",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1009",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Card issuer wants card returned",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "35",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Credited by mistake",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "9",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer promised to pay by specified date",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "102",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "61",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Application Returned Error",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "3",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "1",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Credited account by mistake",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "4",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "54",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Automated activation",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "104",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "61",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "DocGen Failed to complete",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1012",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Generic decline - No other information is being provided by the issuer",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1028",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Failed to select items",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1031",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Logical Problem",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "24",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Service Charges",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "31",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Credited by mistake",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "34",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer not satisfied with the service",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "13",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "MS02",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "4",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Moving out of area",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "8",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer not satisfied with service",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "21",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer not satisfied with the service",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "4999",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "16",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Unable to correct payment",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1013",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Card is bad, but passes Mod 10 check digit routine ",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "3",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "54",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Unusual circumstances",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "105",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "61",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "GL Billed Report Generation Failed",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "10",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer could not be reached",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1019",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Edit Error - AVS data is invalid",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1024",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "System unavailable or time-out",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2003",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "14",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Bill not found ",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "3",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "6",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer denied opening account",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "26",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Credited bill by mistake",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "27",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer not satisfied with the service",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "30",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer not satisfied with the service",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "33",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Credited by mistake",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "44",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Location based exemption",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "45",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Fraudulent charges",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "6",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "AM04",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "11",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "MD02",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "2",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer requested reactivation",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "4",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "2",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Other problem resolved",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "4",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Duplicate account",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "4",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "4",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Violated company policy",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "8",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer unaware of charges",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "106",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "61",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "GL UnBilled Report Generation Failed",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1007",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Issuer wants voice contact with cardholder",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1008",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Approve/Decline",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1015",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Issuer does not allow this type of transaction",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1020",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Invalid Location specified",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2999",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "14",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Default Reason Id ",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2001",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "14",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Account No not found",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2002",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "14",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Account Status is closed ",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2009",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "14",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Multiple Account Distribution ",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "22",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Credited account by mistake",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "29",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Credited by mistake",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "39",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer not satisfied with the service",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "0",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "43",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Other",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "44",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer status based exemption",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "3",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "AC06",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "5",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "AG02",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "7",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "AM05",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "15",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "RC01",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "3",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "3",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Bill not paid",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "3",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "11",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Lawsuit Pending",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1014",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Card has expired or bad date sent. Confirm proper date",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "1",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Technical and support charges",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "4",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "10",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer did not return call as requested",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "103",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "61",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Unexpected Error",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "40",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Credited by mistake",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "107",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "61",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "GL Billed Earned Report Generation Failed",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "1",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Service charges",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "4",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "3",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Suspect customer misconduct",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "4",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "9",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer did not return call as requested",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1006",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Card Declined",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1010",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Card reported as lost/stolen",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1016",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Amount not accepted by network",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1021",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Invalid Zip Code Specified",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1032",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Formatting of account number is incorrect",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1033",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Invalid characters in account number",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1034",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "System error/malfunction with issuer",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2006",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "14",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Payment due to recycling",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "36",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer not satisfied with the service",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "38",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Credited by mistake",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "42",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Account Write-off",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "3",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "43",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Price correction",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "3",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "45",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Erroneous charges",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "AC04",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "9",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "FF01",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "3",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "8",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Debited account by mistake",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "19",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "RC04",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "20",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "SL01",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "22",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "CNOR",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "52",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "AM05",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "53",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "General Comments ",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "109",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "61",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "GL Prev Billed Earned Report Generation Failed",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "14",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "5",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "New credit card",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "11",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Filed for Bankruptcy",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "4",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "1",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Sponsored Topup. Sponsor Debit",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "7",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Requested by customer",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "3",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "7",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Required by increased service charges",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "4",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "7",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Special circumstances",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "41",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer not satisfied with the service",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "4",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "8",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Write-off for Auto-writeoff reversal feature",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "4",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "11",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Strategic account with special Contract/Payment Terms",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1004",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Network Error",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1017",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Card has been restricted",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1023",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Soft Decline",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1030",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Insufficient funds/over credit limit",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2007",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "14",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "MBI Distribution Required ",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "6",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer not satisfied with service",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "28",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer not satisfied with the service",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "43",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Manual adjustment",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "45",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Failed to collect",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "8",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "BE01",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "21",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "DNOR",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "53",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Special Considerations ",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "54",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Special instructions",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1002",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Bad Amount",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "101",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "61",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Job Template Object Not Found",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1003",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Unknown Error",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1011",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Card has expired",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1018",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Paymentech received no answer from auth network",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1027",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "13",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Invalid Command",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2005",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "14",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Missing Transaction Id ",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "2",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "6",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer unaware of charges",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "1",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "25",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Customer not satisfied with the service",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "3",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "44",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Reclassification of exemption status",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "4",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "AG01",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "3",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "2",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Credit card now working",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "5",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "8",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Sponsored Topup. Sponsoree Credit",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "17",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "RR02",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "18",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "51",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "RR03",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "11",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "5",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Reactivated account",
+                    "name": "Description"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "4999",
+                    "name": "AdjustmentCode"
+                },
+                {
+                    "value": "16",
+                    "name": "DomainID"
+                },
+                {
+                    "value": "Unable to correct payment",
+                    "name": "Description"
+                }
+            ]
+        }
+    ]
+};
+     // var myJSON = JSON.stringify(response);  
+ 
+        //Create a HTML Table element.
+        var table = document.createElement("TABLE");
+        table.border = "1";
+ 
+        //Get the count of columns.
+        var columnCount = customers[0].length;
+ 
+        //Add the header row.
+        var row = table.insertRow(-1);
+        for (var i = 0; i < columnCount; i++) {
+            var headerCell = document.createElement("TH");
+            headerCell.innerHTML = customers[0][i];
+            row.appendChild(headerCell);
+        }
+            
+            var tempArray = new Array();
+ 
+        for (var i = 0; i < response.results.length; i++) {
+             for (var j = 0; j < response.results[i].column.length; j++) {
+                tempArray.push(response.results[i].column[j].value);
+                if(j === response.results[i].column.length-1) {
+                    customers.push([tempArray[0],tempArray[1],tempArray[2]]);
+                    tempArray = new Array();
+                }
+             }
+        }
+        
+        alert(tempArray);
+        alert(customers);
+ 
+        //Add the data rows.
+        for (var i = 1; i < customers.length; i++) {
+            row = table.insertRow(-1);
+            for (var j = 0; j < columnCount; j++) {
+                var cell = row.insertCell(-1);
+                cell.innerHTML = customers[i][j];
+            }
+        }
+ 
+        var dvTable = document.getElementById("dvTable");
+        dvTable.innerHTML = "";
+        dvTable.appendChild(table);
+    }
+</script>
+        
+    </head>
+    <body>
+       <input type="button" value="Generate Table" onclick="GenerateTable()" />
+<hr />
+<div id="dvTable"></div>
+    </body>
+</html>

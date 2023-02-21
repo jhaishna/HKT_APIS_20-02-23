@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<genericTemplate xmlns="http://xmlns.oracle.com/cgbu/schemas/BusinessObjs">
+    <saveResults>false</saveResults>
+    <columnHeader name="stringID">
+        <label>STRING_ID</label>
+        <width>1%</width>
+        <visible>false</visible>
+        <sortable>false</sortable>
+        <tooltip>STRING_ID</tooltip>
+        <resizable>false</resizable>
+        <alignment>left</alignment>
+    </columnHeader>
+    <columnHeader name="version">
+        <label>VERSION</label>
+        <width>14%</width>
+        <visible>true</visible>
+        <sortable>false</sortable>
+        <tooltip>VERSION</tooltip>
+        <resizable>false</resizable>
+        <alignment>left</alignment>
+    </columnHeader>
+    <columnHeader name="string">
+        <label>STRING</label>
+        <width>20%</width>
+        <visible>true</visible>
+        <sortable>true</sortable>
+        <tooltip>STRING</tooltip>
+        <resizable>false</resizable>
+        <alignment>left</alignment>
+    </columnHeader>
+    <columnHeader name="helpString">
+        <label>HELP_STRING</label>
+        <width>20%</width>
+        <visible>true</visible>
+        <sortable>true</sortable>
+        <tooltip>HELP_STRING</tooltip>
+        <resizable>false</resizable>
+        <alignment>left</alignment>
+    </columnHeader>
+    <storableClass>
+        <name>/strings</name>
+        <column name="stringID">
+            <type>id</type>
+            <fields>id</fields>
+        </column>
+        <column name="version">
+            <type>text</type>
+            <fields>version</fields>
+        </column>
+        <column name="string">
+            <type>text</type>
+            <fields>string</fields>
+        </column>
+        <column name="helpString">
+            <type>text</type>
+            <fields>helpSting</fields>
+        </column>
+        </criteria>
+        <criteria name="stringID">
+            <label></label>
+            <inputType>Text</inputType>
+            <width>245</width>
+            <placeHolder>STRING_ID</placeHolder>
+            <fieldKey>accountNumber</fieldKey>
+            <storableClass>/strings</storableClass>
+            <visible>true</visible>
+        </criteria>
+        <criteria name="version">
+            <label></label>
+            <inputType>Text</inputType>
+            <width>125</width>
+            <placeHolder>VERSION</placeHolder>
+            <fieldKey>version</fieldKey>
+            <storableClass>/strings</storableClass>
+            <visible>true</visible>
+        </criteria>
+        <criteria name="string">
+            <label></label>
+            <inputType>Text</inputType>
+            <width>125</width>
+            <placeHolder>STRING</placeHolder>
+            <fieldKey>string</fieldKey>
+            <storableClass>/strings</storableClass>
+            <visible>true</visible>
+        </criteria>
+        <criteria name="helpString">
+            <label></label>
+            <inputType>Text</inputType>
+            <width>245</width>
+            <placeHolder>HELP_STRING</placeHolder>
+            <fieldKey>helpString</fieldKey>
+            <storableClass>/strings</storableClass>
+            <visible>true</visible>
+        </criteria>
+        <criteria name="Domain">
+            <label></label>
+            <inputType>Text</inputType>
+            <width>245</width>
+            <placeHolder>Domain</placeHolder>
+            <fieldKey>domain</fieldKey>
+            <storableClass>/strings</storableClass>
+            <visible>true</visible>
+        </criteria>
+</genericTemplate>
+
+

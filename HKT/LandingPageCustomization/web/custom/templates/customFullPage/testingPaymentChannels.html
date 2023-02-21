@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> 
+    </script>
+        <script type="text/javascript"><!-- comment -->
+        function GenerateTable() {
+        
+         var paymentChannels = new Array();
+         paymentChannels.push(["Select a PaymentChannel", "0"]);
+             
+        //Build an array containing Customer records.
+      var response = {
+        "extension": null,
+    "results": [
+        {
+            "column": [
+                {
+                    "value": "C-HSBC/HSB ATM",
+                    "name": "Reason"
+                },
+                {
+                    "value": "161",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "HSBC ATM",
+                    "name": "Reason"
+                },
+                {
+                    "value": "61",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "PPS",
+                    "name": "Reason"
+                },
+                {
+                    "value": "62",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Manual-Credit Card",
+                    "name": "Reason"
+                },
+                {
+                    "value": "49",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "SCB-Cheque",
+                    "name": "Reason"
+                },
+                {
+                    "value": "54",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Alipay-Dragon",
+                    "name": "Reason"
+                },
+                {
+                    "value": "70",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "BOC-VISA",
+                    "name": "Reason"
+                },
+                {
+                    "value": "41",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Bill Payment Cash",
+                    "name": "Reason"
+                },
+                {
+                    "value": "81",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-7-Eleven",
+                    "name": "Reason"
+                },
+                {
+                    "value": "152",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-Cheque-Citibank",
+                    "name": "Reason"
+                },
+                {
+                    "value": "154",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "TG-Master",
+                    "name": "Reason"
+                },
+                {
+                    "value": "48",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "BEA-Master",
+                    "name": "Reason"
+                },
+                {
+                    "value": "46",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-Back Office-Dragon",
+                    "name": "Reason"
+                },
+                {
+                    "value": "156",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-PPS",
+                    "name": "Reason"
+                },
+                {
+                    "value": "162",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-Kiosk EPS",
+                    "name": "Reason"
+                },
+                {
+                    "value": "172",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-BPY Cheque",
+                    "name": "Reason"
+                },
+                {
+                    "value": "185",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "HK Post",
+                    "name": "Reason"
+                },
+                {
+                    "value": "53",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Diners",
+                    "name": "Reason"
+                },
+                {
+                    "value": "44",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Bill Payment VISA/Master",
+                    "name": "Reason"
+                },
+                {
+                    "value": "84",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-Handset Payment",
+                    "name": "Reason"
+                },
+                {
+                    "value": "163",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-Kiosk Octopus",
+                    "name": "Reason"
+                },
+                {
+                    "value": "174",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "7-Eleven",
+                    "name": "Reason"
+                },
+                {
+                    "value": "52",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "PPS-Dragon",
+                    "name": "Reason"
+                },
+                {
+                    "value": "57",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Tap&Go via Dragon",
+                    "name": "Reason"
+                },
+                {
+                    "value": "58",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "eBill UnionPay",
+                    "name": "Reason"
+                },
+                {
+                    "value": "67",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Kiosk EPS",
+                    "name": "Reason"
+                },
+                {
+                    "value": "72",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Autopay-Bank A/C",
+                    "name": "Reason"
+                },
+                {
+                    "value": "21",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "BOC-Master",
+                    "name": "Reason"
+                },
+                {
+                    "value": "42",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Bill Payment Cheque",
+                    "name": "Reason"
+                },
+                {
+                    "value": "82",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Manual-Cash",
+                    "name": "Reason"
+                },
+                {
+                    "value": "99",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-Jetco",
+                    "name": "Reason"
+                },
+                {
+                    "value": "151",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-Back Office",
+                    "name": "Reason"
+                },
+                {
+                    "value": "155",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Unspecified",
+                    "name": "Reason"
+                },
+                {
+                    "value": "0",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-Kiosk AE",
+                    "name": "Reason"
+                },
+                {
+                    "value": "173",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "TG-VISA",
+                    "name": "Reason"
+                },
+                {
+                    "value": "47",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Dragon-others",
+                    "name": "Reason"
+                },
+                {
+                    "value": "59",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Kiosk AE",
+                    "name": "Reason"
+                },
+                {
+                    "value": "73",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "FPS via Dragon",
+                    "name": "Reason"
+                },
+                {
+                    "value": "80",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Bill Payment AE",
+                    "name": "Reason"
+                },
+                {
+                    "value": "85",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-APPS Payment",
+                    "name": "Reason"
+                },
+                {
+                    "value": "164",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-Kiosk VISA/Master",
+                    "name": "Reason"
+                },
+                {
+                    "value": "171",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-BPY AE",
+                    "name": "Reason"
+                },
+                {
+                    "value": "183",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-Others",
+                    "name": "Reason"
+                },
+                {
+                    "value": "189",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Back Office",
+                    "name": "Reason"
+                },
+                {
+                    "value": "55",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Unionpay",
+                    "name": "Reason"
+                },
+                {
+                    "value": "25",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Bill Payment EPS",
+                    "name": "Reason"
+                },
+                {
+                    "value": "83",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Bill Payment Others",
+                    "name": "Reason"
+                },
+                {
+                    "value": "89",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-Autopay",
+                    "name": "Reason"
+                },
+                {
+                    "value": "121",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-BPY VISA/Master",
+                    "name": "Reason"
+                },
+                {
+                    "value": "181",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "JETCO ATM",
+                    "name": "Reason"
+                },
+                {
+                    "value": "51",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "HSBC-Dragon",
+                    "name": "Reason"
+                },
+                {
+                    "value": "56",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Kiosk VISA/Master",
+                    "name": "Reason"
+                },
+                {
+                    "value": "71",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Data Conversion",
+                    "name": "Reason"
+                },
+                {
+                    "value": "88",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Manual-Cheque",
+                    "name": "Reason"
+                },
+                {
+                    "value": "92",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-Credit Card Hotline",
+                    "name": "Reason"
+                },
+                {
+                    "value": "142",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-BPY EPS",
+                    "name": "Reason"
+                },
+                {
+                    "value": "182",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-BPY Cash",
+                    "name": "Reason"
+                },
+                {
+                    "value": "184",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "eBill",
+                    "name": "Reason"
+                },
+                {
+                    "value": "63",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "eBill Visa/Master",
+                    "name": "Reason"
+                },
+                {
+                    "value": "66",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Kiosk Octopus",
+                    "name": "Reason"
+                },
+                {
+                    "value": "74",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Prepayment",
+                    "name": "Reason"
+                },
+                {
+                    "value": "1",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "AE",
+                    "name": "Reason"
+                },
+                {
+                    "value": "43",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "BEA-VISA",
+                    "name": "Reason"
+                },
+                {
+                    "value": "45",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "Kiosk others",
+                    "name": "Reason"
+                },
+                {
+                    "value": "79",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-Credit Card Autopay",
+                    "name": "Reason"
+                },
+                {
+                    "value": "141",
+                    "name": "ChannelId"
+                }
+            ]
+        },
+        {
+            "column": [
+                {
+                    "value": "C-Credit Card IVRS",
+                    "name": "Reason"
+                },
+                {
+                    "value": "143",
+                    "name": "ChannelId"
+                }
+            ]
+        }
+    ]
+};
+                            var paymentChannels = new Array();
+                                  paymentChannels.push(["Select a PaymentChannel", "0"]);
+                                  var tempArray = new Array();
+                                    for (var i = 0; i < response.results.length; i++) {
+                                         for (var j = 0; j < response.results[i].column.length; j++) {
+                                            tempArray.push(response.results[i].column[j].value);
+                                            if(j === response.results[i].column.length-1) {
+                                                paymentChannels.push([tempArray[0],tempArray[1]]);
+                                                tempArray = new Array();
+                                            }
+                                         }
+                                    }
+                                    console.log(paymentChannels);
+                                   var options = '';
+
+                                    for (var i = 0; i < paymentChannels.length; i++) {
+                                       options += '<option value="' + paymentChannels[i][1]+ '">' + paymentChannels[i][0] + '</option>';
+                                    }
+                                    $("#CusineList").html(options);
+            }    
+</script>
+        
+    </head>
+    <body>
+        <select id="CusineList"></select>
+       <input type="button" value="Generate Table" onclick="GenerateTable()" />
+<hr />
+<div id="dvTable"></div>
+    </body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"> </script>
+        <script type="text/javascript">
+            
+    function changeDisplay() {
+        var searchOptions = document.getElementById("searchOptionsId");
+        var glidLabel = document.getElementById("glidLabel");
+        var glidInput = document.getElementById("glidInput");
+       
+        
+        glidInput.value = "";
+        adjustmentPrefixInput.value ="";
+        descriptionInput.value = "";
+        
+          //Update this to your logic...
+          if(searchOptions.value === "glid") {
+            glidLabel.style.display="";
+            glidInput.style.display="";
+            adjustmentPrefixLabel.style.display = 'none';
+            adjustmentPrefixInput.style.display = 'none';
+            descriptionLabel.style.display = 'none';
+            descriptionInput.style.display = 'none';
+           
+          } 
+          
+          if(searchOptions.value === "glid" || searchOptions.value === "eDesc" || searchOptions.value === "acr" || searchOptions.value === "arc") {
+            searchId.style.display = "";
+            cancelId.style.display = "";
+          }
+          
+          if(searchOptions.value === "0") {
+            searchId.style.display = "none";
+            cancelId.style.display = "none";
+            glidLabel.style.display = 'none';
+            glidInput.style.display = 'none';
+            reasonCodeLabel.style.display = 'none';
+            reasonCodeInput.style.display = 'none';
+            adjustmentPrefixLabel.style.display = 'none';
+            adjustmentPrefixInput.style.display = 'none';
+            descriptionLabel.style.display = 'none';
+            descriptionInput.style.display = 'none';
+          }
+    }
+        
+        
+        function search() { 
+            ajaxCall();
+        }
+        
+        function cancel() {
+        var searchOptions = document.getElementById("searchOptionsId");
+        var reasonCodeLabel = document.getElementById("reasonCodeLabel");
+        var reasonCodeInput = document.getElementById("reasonCodeInput");
+        var adjustmentPrefixLabel = document.getElementById("adjustmentPrefixLabel");
+        var adjustmentPrefixInput = document.getElementById("adjustmentPrefixInput");
+        var descriptionLabel = document.getElementById("descriptionLabel");
+        var descriptionInput = document.getElementById("descriptionInput");
+        var glidLabel = document.getElementById("glidLabel");
+        var glidInput = document.getElementById("glidInput");
+        var searchId = document.getElementById("searchId");
+        var cancelId = document.getElementById("cancelId");
+           searchId.style.display = "none";
+            cancelId.style.display = "none";
+            glidLabel.style.display = 'none';
+            glidInput.style.display = 'none';
+            reasonCodeLabel.style.display = 'none';
+            reasonCodeInput.style.display = 'none';
+            adjustmentPrefixLabel.style.display = 'none';
+            adjustmentPrefixInput.style.display = 'none';
+            descriptionLabel.style.display = 'none';
+            descriptionInput.style.display = 'none';
+            searchOptions.value = "0"
+        }
+        
+        function displayEnquiryOptions() {
+            var selectFunctionId = document.getElementById("selectFunctionId");
+            var enquiryTd = document.getElementById("enquiryTd");
+            var enquiryOptionsTd = document.getElementById("enquiryOptionsTd");
+             var enquiryOptionsTd = document.getElementById("enquiryOptionsTd");
+              var deleteTd = document.getElementById("deleteTd");
+             
+             if(selectFunctionId.value === '0') {
+               enquiryTd.style.display = "none";
+               enquiryOptionsTd.style.display = "none";
+               deleteTd.style.display = "none";
+            }
+            if(selectFunctionId.value === 'enquiry') {
+               enquiryTd.style.display = "";
+            }
+            if(selectFunctionId.value === 'delete') {
+               enquiryTd.style.display = "none";
+               enquiryOptionsTd.style.display = "none";
+               deleteTd.style.display = "";
+            }
+        }
+        
+        </script>
+        
+    </head>
+<body>
+<form id="AdjustmentCodeEnquiry" name="AdjustmentCodeEnquiryForm" autocomplete="off">
+    <br>
+    <center>  <h1><u>GL Maintenance</u></h1> </center>  <br><br>
+    <center>
+    <table border = "1" width = "35%" cellpadding="1" cellspacing="0" bordercolor = "#00A2E8" bgcolor = "white" align="center">
+        <tr align="center">
+             <td>
+                <label>Select Function :</label>
+                <select name="selectFunction" id="selectFunctionId" onchange="displayEnquiryOptions()">
+                  <option value="0">Select Function</option>
+                  <option value="enquiry">Enquiry</option>
+                  <option value="delete">Delete</option>
+                </select>
+             </td>
+         </tr> 
+         
+         <tr align="center">
+             <td id="deleteTd" style="display: none">
+                <label id="glidDeleteLabel">GLID :</label>
+                <input type="text" name="glid" id="glidDeleteInput"/><br/>
+             </td>
+         </tr>
+        
+         <tr align="center">
+             <td id="enquiryTd" style="display: none">
+                <label>Search :</label>
+                <select name="searchOptions" id="searchOptionsId" onchange="changeDisplay()">
+                  <option value="0">Select Enquiry Options</option>
+                  <option value="glid">GL ID</option>
+                  <option value="glidSegment">GL Segment</option>
+                  <option value="glidDescription">GL Description</option>
+                  <option value="glidHistory">GL ID History</option>
+                  <option value="glidPrefix">GLID Prefix</option>
+                </select>
+             </td>
+         </tr>
+         <tr align="center">
+             <td id="enquiryOptionsTd"><br/>
+<label id="glidLabel" style="display: none">GLID :</label>
+<input type="text" name="glid" id="glidInput" style="display: none"/><br/>
+<label id="adjustmentPrefixLabel" style="display: none">Prefix of Adjustment:</label>
+<input type="text" name="adjustmentPrefix" id="adjustmentPrefixInput" style="display: none"/><br/>
+<label id="descriptionLabel" style="display: none">English Description : </label>
+<input type="text" name="description" id="descriptionInput" style="display: none"/><br/>
+
+
+<input type="button" value="Search" id="searchId" style="display: none;background-color: #00A2E8;border-color:black" onclick='search();'/>
+<input type="button" value="Cancel" id="cancelId" style="display: none;background-color: #00A2E8;border-color:black" onclick='cancel();'/>
+             </td>
+         </tr>
+        
+    </table> </center>
+    
+<br/><br/><br/>
+
+<!-- Dynamic Table -->
+
+<center><div id="dynamicTable" style="overflow:scroll;overflow-x:hidden;height:200px;border-top-color: #00A2E8;border-right-color: #00A2E8;border-bottom-color: #00A2E8;border-left-color: #00A2E8;"></div></center>
+
+<center><div id="dynamicErrorTable" style="border-top-color: #00A2E8;border-right-color: #00A2E8;border-bottom-color: #00A2E8;border-left-color: #00A2E8;"></div></center>
+
+
+
+
+
+</form>
+
+</body>
+</html>

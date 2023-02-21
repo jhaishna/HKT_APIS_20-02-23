@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"> </script>
+        <script type="text/javascript">
+            function enableGLIDUI() {
+                var glidLabel = document.getElementById("glidLabel");
+                var glidInput = document.getElementById("glidInput");
+                var glidLabelEg = document.getElementById("glidLabelEg");
+                glidLabel.style.display="";
+                glidInput.style.display="";
+                glidLabelEg.style.display="";
+            }
+            
+            function disableGLIDUI() {
+                var glidLabel = document.getElementById("glidLabel");
+                var glidInput = document.getElementById("glidInput");
+                var glidLabelEg = document.getElementById("glidLabelEg");
+                glidLabel.style.display="none";
+                glidInput.style.display="none";
+                glidLabelEg.style.display="none";
+            }
+            
+            function enableGLSegmentUI() {
+                var glidSegmentLabel = document.getElementById("glidSegmentLabel");
+                var glSegmentInput = document.getElementById("glSegmentInput");
+                var glidSegmentLabelEg = document.getElementById("glidSegmentLabelEg");
+                glidSegmentLabel.style.display = '';
+                glSegmentInput.style.display = '';
+                glidSegmentLabelEg.style.display = '';
+            }
+            
+            function disableGLSegmentUI() {
+                var glidSegmentLabel = document.getElementById("glidSegmentLabel");
+                var glSegmentInput = document.getElementById("glSegmentInput");
+                var glidSegmentLabelEg = document.getElementById("glidSegmentLabelEg");
+                glidSegmentLabel.style.display = 'none';
+                glSegmentInput.style.display = 'none';
+                glidSegmentLabelEg.style.display = 'none';
+            }
+            
+            function enableGLDescriptionUI() {
+                var glDescriptionLabel = document.getElementById("glDescriptionLabel");
+                var glDescriptionInput = document.getElementById("glDescriptionInput");
+                var glDescriptionLabelEg = document.getElementById("glDescriptionLabelEg");
+                glDescriptionLabel.style.display = '';
+                glDescriptionInput.style.display = '';
+                glDescriptionLabelEg.style.display = '';
+            }
+            
+            function disableGLDescriptionUI() {
+                var glDescriptionLabel = document.getElementById("glDescriptionLabel");
+                var glDescriptionInput = document.getElementById("glDescriptionInput");
+                var glDescriptionLabelEg = document.getElementById("glDescriptionLabelEg");
+                glDescriptionLabel.style.display = 'none';
+                glDescriptionInput.style.display = 'none';
+                glDescriptionLabelEg.style.display = 'none';
+            }
+            
+            function enableGLHistoryUI() {
+                var glidHistoryLabel = document.getElementById("glidHistoryLabel");
+                var glidHistoryInput = document.getElementById("glidHistoryInput");
+                var glidHistoryLabelEg = document.getElementById("glidHistoryLabelEg");
+                glidHistoryLabel.style.display = '';
+                glidHistoryInput.style.display = '';
+                glidHistoryLabelEg.style.display = '';
+            }
+            
+            function disableGLHistoryUI() {
+                var glidHistoryLabel = document.getElementById("glidHistoryLabel");
+                var glidHistoryInput = document.getElementById("glidHistoryInput");
+                var glidHistoryLabelEg = document.getElementById("glidHistoryLabelEg");
+                glidHistoryLabel.style.display = 'none';
+                glidHistoryInput.style.display = 'none';
+                glidHistoryLabelEg.style.display = 'none';
+            }
+            
+            function enableGLStartDateUI() {
+                var glidStartDateLabel = document.getElementById("glidStartDateLabel");
+                var glidStartDateInput = document.getElementById("glidStartDateInput");
+                var glidStartDateLabelEg = document.getElementById("glidStartDateLabelEg");
+                glidStartDateLabel.style.display = '';
+                glidStartDateInput.style.display = '';
+                glidStartDateLabelEg.style.display = '';
+            }
+            
+            function disableGLStartDateUI() {
+                var glidStartDateLabel = document.getElementById("glidStartDateLabel");
+                var glidStartDateInput = document.getElementById("glidStartDateInput");
+                var glidStartDateLabelEg = document.getElementById("glidStartDateLabelEg");
+                glidStartDateLabel.style.display = 'none';
+                glidStartDateInput.style.display = 'none';
+                glidStartDateLabelEg.style.display = 'none';
+            }
+            
+            function enableGLEndDateUI() {
+                var glidEndDateLabel = document.getElementById("glidEndDateLabel");
+                var glidEndDateInput = document.getElementById("glidEndDateInput");
+                var glidEndDateLabelEg = document.getElementById("glidEndDateLabelEg");
+                glidEndDateLabel.style.display = '';
+                glidEndDateInput.style.display = '';
+                glidEndDateLabelEg.style.display = '';
+            }
+            
+            function disableGLEndDateUI() {
+                var glidEndDateLabel = document.getElementById("glidEndDateLabel");
+                var glidEndDateInput = document.getElementById("glidEndDateInput");
+                var glidEndDateLabelEg = document.getElementById("glidEndDateLabelEg");
+                glidEndDateLabel.style.display = 'none';
+                glidEndDateInput.style.display = 'none';
+                glidEndDateLabelEg.style.display = 'none';
+            }
+         
+            function enableGLPrefixUI() {
+                var glidPrefixLabel = document.getElementById("glidPrefixLabel");
+                var glidPrefixInput = document.getElementById("glidPrefixInput");
+                var glidPrefixLabelEg = document.getElementById("glidPrefixLabelEg");
+                glidPrefixLabel.style.display = '';
+                glidPrefixInput.style.display = '';
+                glidPrefixLabelEg.style.display = '';
+            }
+            
+            function disableGLPrefixUI() {
+                var glidPrefixLabel = document.getElementById("glidPrefixLabel");
+                var glidPrefixInput = document.getElementById("glidPrefixInput");
+                var glidPrefixLabelEg = document.getElementById("glidPrefixLabelEg");
+                glidPrefixLabel.style.display = 'none';
+                glidPrefixInput.style.display = 'none';
+                glidPrefixLabelEg.style.display = 'none';
+            }
+            
+            function showButtons() {
+                searchId.style.display = "";
+                cancelId.style.display = "";
+                exitId.style.display = "";
+            }
+            
+            function unShowButtons() {
+                searchId.style.display = "none";
+                cancelId.style.display = "none";
+                exitId.style.display = "none";
+                exportId.style.display = "none";
+            }
+            
+            function showExportButton() {
+                exportId.style.display = "";
+            }
+            
+            function unShowExportButton() {
+                exportId.style.display = "none";
+            }
+            
+            function showDeleteButton() {
+                deleteId.style.display = "";
+            }
+            
+            function unShowDeleteButton() {
+                deleteId.style.display = "none";
+            }
+            
+            function ajaxCall() {
+                var searchOptions = document.getElementById("searchOptionsId");
+                var glidValue = document.getElementById("glidInput").value;
+                var glSegmentValue = document.getElementById("glSegmentInput").value;
+                var glDescriptionValue = document.getElementById("glDescriptionInput").value;
+                var glidHistoryValue = document.getElementById("glidHistoryInput").value;
+                var glidStartDateValue = document.getElementById("glidStartDateInput").value;
+                var glidEndDateValue = document.getElementById("glidEndDateInput").value;
+                var glidPrefixValue = document.getElementById("glidPrefixInput").value;
+                
+                if(searchOptions.value === "glid") {
+                    if(glidValue == "" || glidValue == null) {
+                        alert("Please enter valid Input");
+                        return;
+                    }
+                    if(glidValue && !/^[0-9%]+$/.test(glidValue)){
+                        alert("Only numbers are allowed for GLID");
+                        return;
+                    }
+                }
+                if(searchOptions.value === "glidSegment") {
+                    if(glSegmentValue == "" || glSegmentValue == null) {
+                        alert("Please enter valid Input");
+                        return;
+                    }
+                    if(/^[a-zA-Z0-9-.,_]*$/.test(glSegmentValue) == false) {
+                        alert("Only few special characters are allowed");
+                        return;
+                    }
+                }
+                if(searchOptions.value === "glidDescription") {
+                    if(glDescriptionValue == "" || glDescriptionValue == null) {
+                        alert("Please enter valid Input");
+                        return;
+                    }
+                    //if(/^[a-zA-Z0-9]*$/.test(glDescriptionValue) == false){
+                      if(/^[a-zA-Z0-9-@.\/#&+\w\s]*$/.test(glDescriptionValue) == false){
+                        alert("Only alphanumeric characters are allowed");
+                        return;
+                    }
+                }
+                if(searchOptions.value === "glidHistory") {
+                    if(glidHistoryValue == "" || glidHistoryValue == null || glidStartDateValue == "" || glidStartDateValue == null || glidEndDateValue == "" || glidEndDateValue == null) {
+                        alert("Please enter valid Input");
+                        return;
+                    }
+                    if(glidHistoryValue && !/^[0-9%]+$/.test(glidHistoryValue)){
+                        alert("Only numbers are allowed for GLID");
+                        return;
+                    }
+                }
+                if(searchOptions.value === "glidPrefix") {
+                    if(glidPrefixValue == "" || glidPrefixValue == null) {
+                        alert("Please enter valid Input");
+                        return;
+                    }
+                    if(glidPrefixValue && !/^[0-9%]+$/.test(glidPrefixValue)){
+                        alert("Only numbers are allowed for GLID Prefix and % for Full Search");
+                        return;
+                    }
+                }
+                
+            $.ajax({
+                    type: "POST",
+                    url: "http://10.166.4.65:8001/BillingCareAPI/glCodeMaintenanceSearch",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({
+                        glCode : glidValue,
+                        glSegment : glSegmentValue,
+                        glPrefix : glidPrefixValue,
+                        glDescription : glDescriptionValue,
+                        glHistory:glidHistoryValue,
+                        glStartDate: glidStartDateValue,
+                        glEndDate:glidEndDateValue
+                    }),
+                    processData: false,
+                   // beforeSend: function (xhr) {
+                   //   util.setRequestHeader(xhr)
+                   // },
+                    dataType: "json",
+  
+                // Function to call when to process response in case of request is ok 
+                success: function (data) {
+                    console.log(data); 
+
+                var customers = new Array();
+                customers.push(["GL_SEGMENT","GL_ID","DESCR","Attribute","Type","Creditworksorder","CreditCostCenterCode","CreditGLAccountCode","Debitworksorder","DebitCostCenterCode","DebitGLAccountCode","CREATED_T","MOD_T"]);
+                    
+                // Dynamic Table Start
+                    
+                //Create a HTML Table element.
+                var table = document.createElement("TABLE");
+                table.setAttribute("id", "dynamicTableId")
+                table.border = "1";
+        
+                console.log(customers);
+                //Get the count of columns.
+                var columnCount = customers[0].length;
+                console.log("columnCount.."+columnCount);
+                //Add the header row.
+                var row = table.insertRow(-1);
+                for (var i = 0; i < columnCount; i++) {
+                    var headerCell = document.createElement("TH");
+                    headerCell.innerHTML = customers[0][i];
+                    row.appendChild(headerCell);
+                }
+            
+                    if (data.results && data.results.length) {
+                        for (var i = 0; i < data.results.length; i++) {
+                            customers.push([data.results[i].glSegment,data.results[i].glid,data.results[i].glDescription,data.results[i].attributeName,data.results[i].status,data.results[i].orderId,data.results[i].code,data.results[i].glAccount,data.results[i].stringValue,data.results[i].codeString,data.results[i].accountCode,data.results[i].createdDate,data.results[i].modifiedDate]);
+                        }
+
+                        //Add the data rows.
+                        for (var i = 1; i < customers.length; i++) {
+                            row = table.insertRow(-1);
+                            for (var j = 0; j < columnCount; j++) {
+                                var cell = row.insertCell(-1);
+                                cell.innerHTML = customers[i][j];
+                            }
+                        }
+
+                        var dynamicTable = document.getElementById("dynamicTable");
+                        dynamicTable.innerHTML = "";
+                        dynamicTable.appendChild(table);
+                        dynamicTable.style.display="";
+                        showExportButton();
+                    } else if(data.results && data.results.length == 0) {
+                        var dynamicTableObj = document.getElementById("dynamicTable");
+                        dynamicTableObj.style.display="none";
+                        alert("No Data Found !!!");
+                        unShowExportButton();
+                    }
+                },
+  
+                // Error handling 
+                error: function (error) {
+                    console.log("ERROR Response::"+error);
+                    if(error.responseJSON && error.responseJSON.errorCode && error.responseJSON.errorDescription) {
+                        alert(error.responseJSON.errorDescription);
+                        var dynamicTableObj = document.getElementById("dynamicTable");
+                        dynamicTableObj.style.display="none";
+                    }
+                }
+            });
+        }
+    
+    
+    function changeDisplay() {
+        
+        var dynamicTableObj = document.getElementById("dynamicTable");
+        dynamicTableObj.style.display="none";
+        
+        var searchOptions = document.getElementById("searchOptionsId");
+        var enquiryTd = document.getElementById("enquiryTd");
+        
+        
+        glidInput.value = "";
+        glSegmentInput.value ="";
+        glDescriptionInput.value = "";
+        glidHistoryInput.value = "";
+        glidStartDateInput.value = "";
+        glidEndDateInput.value = "";
+        glidPrefixInput.value = "";
+        
+        
+          //Update this to your logic...
+          if(searchOptions.value === "glid") {
+            enableGLIDUI();
+            disableGLSegmentUI();
+            disableGLDescriptionUI();
+            disableGLHistoryUI();
+            disableGLStartDateUI();
+            disableGLEndDateUI();
+            disableGLPrefixUI();
+          }
+          
+          if(searchOptions.value === "glidSegment") {
+            disableGLIDUI();
+            enableGLSegmentUI();
+            disableGLDescriptionUI();
+            disableGLHistoryUI();
+            disableGLStartDateUI();
+            disableGLEndDateUI();
+            disableGLPrefixUI();
+          }
+          
+          if(searchOptions.value === "glidPrefix") {
+            disableGLIDUI();
+            disableGLSegmentUI();
+            disableGLDescriptionUI();
+            disableGLHistoryUI();
+            disableGLStartDateUI();
+            disableGLEndDateUI();
+            enableGLPrefixUI();
+          }
+          
+          if(searchOptions.value === "glidDescription") {
+            disableGLIDUI();
+            disableGLSegmentUI();
+            enableGLDescriptionUI();
+            disableGLHistoryUI();
+            disableGLStartDateUI();
+            disableGLEndDateUI();
+            disableGLPrefixUI();
+          }
+          
+          if(searchOptions.value === "glidHistory") {
+            disableGLIDUI();
+            disableGLSegmentUI();
+            disableGLDescriptionUI();
+            enableGLHistoryUI();
+            enableGLStartDateUI();
+            enableGLEndDateUI();
+            disableGLPrefixUI();
+          }
+          
+          if(searchOptions.value === "glid" || searchOptions.value === "glidSegment" || searchOptions.value === "glidDescription" || searchOptions.value === "glidHistory" || searchOptions.value === "glidPrefix") {
+            showButtons();
+            enquiryTd.style.display="";
+          }
+          
+          if(searchOptions.value === "0") {
+            searchId.style.display = "none";
+            cancelId.style.display = "none";
+            exitId.style.display = "none";
+            exportId.style.display = "none";
+            disableGLIDUI();
+            disableGLSegmentUI();
+            disableGLDescriptionUI();
+            disableGLHistoryUI();
+            disableGLStartDateUI();
+            disableGLEndDateUI();
+            disableGLPrefixUI();
+          }
+    }
+        
+        
+        function search() { 
+            ajaxCall();
+        }
+        
+        function cancel() {
+            var selectFunctionOptions = document.getElementById("selectFunctionId");
+            var searchOptions = document.getElementById("searchOptionsId");
+            var enquiryTd = document.getElementById("enquiryTd");
+            var enquiryOptionsTd = document.getElementById("enquiryOptionsTd");
+            selectFunctionOptions.value="0";
+            searchOptions.value = "0"   
+            
+            unShowButtons();
+            
+            disableGLIDUI();
+            disableGLSegmentUI();
+            disableGLDescriptionUI();
+            disableGLHistoryUI();
+            disableGLStartDateUI();
+            disableGLEndDateUI();
+            disableGLPrefixUI();
+        
+            var dataTable = document.getElementById("dynamicTable");
+            dataTable.innerHTML = "";
+            dataTable.style.display = 'none';
+        }
+        
+        function removeGLDeleteUI() {
+            var deleteTd = document.getElementById("deleteTd");
+            var searchDeleteId = document.getElementById("searchDeleteId");
+            var cancelDeleteId = document.getElementById("cancelDeleteId");
+            var exitDeleteId = document.getElementById("exitDeleteId");
+            var glidDeleteLabelEg = document.getElementById("glidDeleteLabelEg");
+            var glidDeleteInput = document.getElementById("glidDeleteInput");
+            deleteTd.style.display = "none";
+            searchDeleteId.style.display = "none";
+            cancelDeleteId.style.display = "none";
+            exitDeleteId.style.display = "none";
+            glidDeleteLabelEg.style.display = "none";
+            glidDeleteInput.value = "";
+            glidDeleteInput.style.display = "none";
+            var selectFunctionId = document.getElementById("selectFunctionId");
+            selectFunctionId.value = '0'
+        }
+        
+        function displayEnquiryOptions() {
+            var selectFunctionId = document.getElementById("selectFunctionId");
+            var enquiryTd = document.getElementById("enquiryTd");
+            var enquiryOptionsTd = document.getElementById("enquiryOptionsTd");
+            var deleteTd = document.getElementById("deleteTd");
+            var searchDeleteId = document.getElementById("searchDeleteId");
+            var cancelDeleteId = document.getElementById("cancelDeleteId");
+            var exitDeleteId = document.getElementById("exitDeleteId");
+            var glidDeleteLabelEg = document.getElementById("glidDeleteLabelEg");
+            var glidDeleteInput = document.getElementById("glidDeleteInput");
+            
+             
+             if(selectFunctionId.value === '0') {
+               enquiryTd.style.display = "none";
+               enquiryOptionsTd.style.display = "none";
+               deleteTd.style.display = "none";
+            }
+            if(selectFunctionId.value === 'enquiry') {
+               //removeGLDeleteUI();
+               enquiryTd.style.display = "";
+               enquiryOptionsTd.style.display = "";
+            }
+            if(selectFunctionId.value === 'delete') {
+               enquiryTd.style.display = "none";
+               enquiryOptionsTd.style.display = "none";
+               deleteTd.style.display = "";
+               searchDeleteId.style.display = "";
+               cancelDeleteId.style.display = "";
+               exitDeleteId.style.display = "";
+               glidDeleteLabelEg.style.display = "";
+               glidDeleteInput.style.display = "";
+            }
+        }
+        
+        function exportToExcel(tableID, filename = '') {
+            var downloadLink;
+            var dataType = 'application/vnd.ms-excel';
+            var tableSelect = document.getElementById(tableID);
+            var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    
+            // Specify file name
+            filename = filename?filename+'.xls':'excel_data.xls';
+    
+            // Create download link element
+            downloadLink = document.createElement("a");
+    
+            document.body.appendChild(downloadLink);
+    
+            if(navigator.msSaveOrOpenBlob){
+                var blob = new Blob(['\ufeff', tableHTML], {
+                    type: dataType
+                });
+                navigator.msSaveOrOpenBlob( blob, filename);
+            } else {
+                // Create a link to the file
+                downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+                // Setting the file name
+                downloadLink.download = filename;
+
+                //triggering the function
+                downloadLink.click();
+            }
+        }
+        
+         function screenExit() {
+            cancel();
+            window.history.back();
+        }
+        
+        function check() {
+            // foreach row in the table
+            // we create a new checkbox
+            // and wrap it with a td element
+            // then put that td at the beginning of the row
+
+              var $rows = $('#dynamicTableId tr');
+              for (var i = 0; i < $rows.length; i++) {
+                var $checkbox = $('<input />', {
+                  type: 'checkbox',
+                  id: 'id' + i,
+                });
+
+                $checkbox.wrap('<td></td>').parent().prependTo($rows[i]);
+              }
+
+              // First checkbox changes all the others
+              $('#id0').change(function(){
+              var isChecked = $(this).is(':checked');
+              $('#dynamicTableId input[type=checkbox]').prop('checked', isChecked);
+              })
+
+        }
+
+        function deleteSelectedGlids() {
+            var keys = ["glSegment","glId","description","attribute","type","creditWorksOrder","creditCostCenterCode","creditGLAccountCode","debitWorksOrder","debitCostCenterCode","debitGLAccountCode","createdDate","modifiedDate"];
+            var elements = [];    
+            $('#dynamicTableId tr').each(function() {
+                $(this).find("input[type=checkbox]:checked").each(function() {
+                    var i=0;
+                    var elem = new Object();
+                    $(this).closest("td").siblings("td").each(function() {
+                        elem[keys[i]] = $(this).text();
+                        i++;
+                    });
+                    elements.push(elem);
+                });
+            });
+            console.log(elements);
+            $.ajax({
+                    type: "POST",
+                    url: "http://10.166.4.65:8001/BillingCareAPI/glDelete",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({
+                        glDeleteInputs : elements,
+                    }),
+                    processData: false,
+                   // beforeSend: function (xhr) {
+                   //   util.setRequestHeader(xhr)
+                   // },
+                    dataType: "json",
+  
+                // Function to call when to process response in case of request is ok 
+                success: function (data) {
+				
+                    console.log(data);
+                    alert("Deleted Successfully!");     
+                },
+                // Error handling 
+                error: function (error) {
+                    console.log("ERROR Response::"+error);
+                    if(error.responseJSON && error.responseJSON.errorCode && error.responseJSON.errorDescription) {
+                        alert(error.responseJSON.errorDescription);
+                    }
+                }
+            });
+        }
+            
+        function searchDeleteData() {
+            var glidDeleteValue = document.getElementById("glidDeleteInput").value;
+            
+            if(glidDeleteValue == "" || glidDeleteValue == null) {
+               alert("Please enter valid Input");
+               return;
+            }
+            if(glidDeleteValue && !/^[0-9%]+$/.test(glidDeleteValue)){
+                alert("Only numbers are allowed for GLID");
+                return;
+            }
+            
+             $.ajax({
+                    type: "POST",
+                    url: "http://10.166.4.65:8001/BillingCareAPI/glCodeDeleteSearch",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({
+                        glCode : glidDeleteValue,
+                    }),
+                    processData: false,
+                   // beforeSend: function (xhr) {
+                   //   util.setRequestHeader(xhr)
+                   // },
+                    dataType: "json",
+  
+                // Function to call when to process response in case of request is ok 
+                success: function (data) {
+                console.log(data); 
+
+                var customers = new Array();
+                customers.push(["GL_Segment","GL_ID","DESCR","Attribute","Type","Creditworksorder","CreditCostCenterCode","CreditGLaccountCode","Debitworksorder","DebitCostCenterCode","DebitGLaccountCode","CREATED_T","MOD_T"]);
+                    
+                // Dynamic Table Start
+                    
+                //Create a HTML Table element.
+                var table = document.createElement("TABLE");
+                table.setAttribute("id", "dynamicTableId")
+                table.border = "1";
+        
+                //Get the count of columns.
+                var columnCount = customers[0].length;
+                console.log("columnCount.."+columnCount);
+                //Add the header row.
+                var row = table.insertRow(-1);
+                for (var i = 0; i < columnCount; i++) {
+                    var headerCell = document.createElement("TH");
+                    headerCell.innerHTML = customers[0][i];
+                    row.appendChild(headerCell);
+                }
+            
+                    if (data.results && data.results.length) {
+                        for (var i = 0; i < data.results.length; i++) {
+                            customers.push([data.results[i].glSegment,data.results[i].glid,data.results[i].glDescription,data.results[i].attributeName,data.results[i].status,data.results[i].orderId,data.results[i].code,data.results[i].glAccount,data.results[i].stringValue,data.results[i].codeString,data.results[i].accountCode,data.results[i].createdDate,data.results[i].modifiedDate]);
+                        }
+
+                        //Add the data rows.
+                        for (var i = 1; i < customers.length; i++) {
+                            row = table.insertRow(-1);
+                            for (var j = 0; j < columnCount; j++) {
+                                var cell = row.insertCell(-1);
+                                cell.innerHTML = customers[i][j];
+                            }
+                        }
+
+                        var dynamicTable = document.getElementById("dynamicTable");
+                        dynamicTable.innerHTML = "";
+                        dynamicTable.appendChild(table);
+                        dynamicTable.style.display="";
+                        showExportButton();
+                        showDeleteButton();
+                        check(); // To add the dynamic checkBoxes
+                    } else if(data.results && data.results.length == 0) {
+                        var dynamicTableObj = document.getElementById("dynamicTable");
+                        dynamicTableObj.style.display="none";
+                        alert("No Data Found !!!");
+                        document.getElementById("deleteId").display = "none";
+                        unShowExportButton();
+                        unShowDeleteButton();
+                    }
+                },
+  
+                // Error handling 
+                error: function (error) {
+                    console.log("ERROR Response::"+error);
+                    if(error.responseJSON && error.responseJSON.errorCode && error.responseJSON.errorDescription) {
+                        alert(error.responseJSON.errorDescription);
+                        var dynamicTableObj = document.getElementById("dynamicTable");
+                        dynamicTableObj.style.display="none";
+                    }
+                }
+            });
+        }
+        
+        
+        
+        </script>
+        
+    </head>
+<body>
+<form id="GLCodeEnquiry" name="GLCodeEnquiryForm" autocomplete="off">
+    <br>
+    <center>  <h1><u>GL Maintenance</u></h1> </center>  <br><br>
+    <center>
+    <table border = "1" width = "35%" cellpadding="1" cellspacing="0" bordercolor = "#00A2E8" bgcolor = "white" align="center">
+        <tr align="center">
+             <td>
+                <label>Select Function :</label>
+                <select name="selectFunction" id="selectFunctionId" onchange="displayEnquiryOptions()">
+                  <option value="0">Select Function</option>
+                  <option value="enquiry">Enquiry</option>
+                  <option value="delete">Delete</option>
+                </select>
+             </td>
+         </tr> 
+         
+         <tr align="center">
+             <td id="deleteTd" style="display: none"><br/><br/>
+                <label id="glidDeleteLabel">GLID :</label>
+                <input type="text" name="glid" id="glidDeleteInput" maxlength="38"/><label id="glidDeleteLabelEg" style="display: none;font-size:10px;">Only Numbers allowed.Eg:(0-9)</label><br/>
+                <br/><br/>
+                <input type="button" value="Search" id="searchDeleteId" style="display: none;background-color: #00A2E8;border-color:black" onclick='searchDeleteData();'/>
+                <input type="button" value="Cancel" id="cancelDeleteId" style="display: none;background-color: #00A2E8;border-color:black" onclick='removeGLDeleteUI();'/>
+                <input type="button" value="Exit" id="exitDeleteId" style="display: none;background-color: #00A2E8;border-color:black" onclick='screenExit();'/>
+                <input type="button" value="Delete" id="deleteId" style="display: none;background-color: #00A2E8;border-color:black" onclick='deleteSelectedGlids();'/>
+             </td>
+         </tr>
+        
+         <tr align="center">
+             <td id="enquiryTd" style="display: none">
+                <label>Search :</label>
+                <select name="searchOptions" id="searchOptionsId" onchange="changeDisplay()">
+                  <option value="0">Select Enquiry Options</option>
+                  <option value="glid">GL ID</option><label>Search :</label>
+                  <option value="glidSegment">GL Segment</option>
+                  <option value="glidDescription">GL Description</option>
+                  <option value="glidHistory">GL ID History</option>
+                  <option value="glidPrefix">GLID Prefix</option>
+                </select>
+             </td>
+         </tr>
+         <tr align="center">
+             <td id="enquiryOptionsTd"><br/><br/><br/>
+                <label id="glidLabel" style="display: none">GLID :</label>
+                <input type="text" name="glid" id="glidInput" style="display: none" maxlength="38"/><label id="glidLabelEg" style="display: none;font-size:10px;">Only Numbers allowed.Eg:(0-9)</label><br/>
+                
+                <label id="glidSegmentLabel" style="display: none">GL Segment :</label>
+                <input type="text" name="glSegment" id="glSegmentInput" style="display: none"/><label id="glidSegmentLabelEg" style="display: none;font-size:10px;">Please enter any string. eg: telecom</label><br/>
+                
+                <label id="glDescriptionLabel" style="display: none">GL Description : </label>
+                <input type="text" name="glDescription" id="glDescriptionInput" style="display: none" maxlength="255"/><label id="glDescriptionLabelEg" style="display: none;font-size:10px;">Please enter any string. eg: telecom</label><br/>
+                
+                <label id="glidHistoryLabel" style="display: none">GLID : </label>
+                <input type="text" name="glidHistory" id="glidHistoryInput" style="display: none"/><label id="glidHistoryLabelEg" style="display: none;font-size:10px;">Only Numbers allowed.Eg:(0-9) or % is allowed</label><br/>
+                
+                <label id="glidStartDateLabel" style="display: none">GLID StartDate : </label>
+                <input type="date" name="glidStartDate" id="glidStartDateInput" style="display: none"/><label id="glidStartDateLabelEg" style="display: none;font-size:10px;">Please choose the date with the help of selector.</label><br/>
+                
+                <label id="glidEndDateLabel" style="display: none">GLID EndDate : </label>
+                <input type="date" name="glidEndDate" id="glidEndDateInput" style="display: none"/><label id="glidEndDateLabelEg" style="display: none;font-size:10px;">Please choose the date with the help of selector.</label><br/>
+                
+                <label id="glidPrefixLabel" style="display: none">GLIDPrefix : </label>
+                <input type="text" name="glidPrefix" id="glidPrefixInput" style="display: none"/><label id="glidPrefixLabelEg" style="display: none;font-size:10px;">Only Numbers allowed.Eg:(0-9) or % is allowed</label><br/>
+                
+                <br/><br/>
+                
+               <input type="button" value="Search" id="searchId" style="display: none;background-color: #00A2E8;border-color:black" onclick='search();'/>
+               <input type="button" value="Cancel" id="cancelId" style="display: none;background-color: #00A2E8;border-color:black" onclick='cancel();'/>
+               <input type="button" value="Exit" id="exitId" style="display: none;background-color: #00A2E8;border-color:black" onclick='screenExit();'/>
+               <input type="button" value="Export" id="exportId" style="display: none;background-color: #00A2E8;border-color:black" onclick="exportToExcel('dynamicTableId','glidSearchResults');"/>
+             </td>
+         </tr>
+    </table> </center>
+    
+<br/><br/><br/>
+
+<!-- Dynamic Table -->
+
+<center><div id="dynamicTable" style="overflow:scroll;overflow-x:hidden;height:200px;border-top-color: #00A2E8;border-right-color: #00A2E8;border-bottom-color: #00A2E8;border-left-color: #00A2E8;"></div></center>
+
+</form>
+
+</body>
+</html>

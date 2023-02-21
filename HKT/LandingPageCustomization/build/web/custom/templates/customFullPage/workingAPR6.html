@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"> </script>
+    
+        <script type="text/javascript">
+            function ajaxCall() {
+                
+                var criteriaObject = [{"field":"Domain","value":"Reason Codes-*"}];
+                var reasonCodeValue = document.getElementById("reasonCodeInput");
+                if(reasonCodeValue) {
+                  criteriaObject.push({"field":"AdjustmentCode","value":reasonCodeValue.value});
+                }
+               
+                
+            $.ajax({
+                    type: "POST",
+                    url: "http://10.166.4.2:8001/bc/webresources/v1.0/private/search",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({
+                            searchTemplateName : 'AdjustmentCodeEnquiry',
+                            criterias : criteriaObject
+                        }),
+                    processData: false,
+                    beforeSend: function (xhr) {
+                        util.setRequestHeader(xhr)
+                    },
+                    dataType: "json",
+  
+                // Function to call when to
+                // request is ok 
+                success: function (data) {
+                    //var response = JSON.stringify(data);
+                    
+                    console.log(data);
+                    
+        var customers = new Array();
+        customers.push(["ADJCODE", "Version", "English Description"]);
+                    
+                    // Dynamic Table Start
+                    
+        //Create a HTML Table element.
+        var table = document.createElement("TABLE");
+        table.border = "1";
+        
+        
+      
+        console.log(customers);
+        //Get the count of columns.
+        var columnCount = customers[0].length;
+        console.log("columnCount.."+columnCount);
+        //Add the header row.
+        var row = table.insertRow(-1);
+        for (var i = 0; i < columnCount; i++) {
+            var headerCell = document.createElement("TH");
+            headerCell.innerHTML = customers[0][i];
+            row.appendChild(headerCell);
+        }
+            
+        var tempArray = new Array();
+       
+      
+        for (var i = 0; i < data.results.length; i++) {
+             for (var j = 0; j < data.results[i].column.length; j++) {
+                tempArray.push(data.results[i].column[j].value);
+                if(j === data.results[i].column.length-1) {
+                    customers.push([tempArray[0],tempArray[1],tempArray[2]]);
+                    tempArray = new Array();
+                }
+             }
+        }
+       
+        
+        //Add the data rows.
+        for (var i = 1; i < customers.length; i++) {
+            row = table.insertRow(-1);
+            for (var j = 0; j < columnCount; j++) {
+                var cell = row.insertCell(-1);
+                cell.innerHTML = customers[i][j];
+            }
+        }
+ 
+        var dynamicTable = document.getElementById("dynamicTable");
+        dynamicTable.innerHTML = "";
+        dynamicTable.appendChild(table);
+
+                    
+                    
+                    // Dynamic Table End
+                },
+  
+                // Error handling 
+                error: function (error) {
+                    console.log(`Error ${error}`);
+                }
+            });
+        }
+
+    function changeDisplay() {
+        var searchOptions = document.getElementById("searchOptionsId");
+        var reasonCodeLabel = document.getElementById("reasonCodeLabel");
+        var reasonCodeInput = document.getElementById("reasonCodeInput");
+        var codeRangeLabel = document.getElementById("codeRangeLabel");
+        var codeRangeFromInput = document.getElementById("codeRangeFromInput");
+        var codeRangeLabel = document.getElementById("codeRangeLabel");
+        var codeRangeToInput = document.getElementById("codeRangeToInput");
+        var descriptionLabel = document.getElementById("descriptionLabel");
+        var descriptionInput = document.getElementById("descriptionInput");
+        var glidLabel = document.getElementById("glidLabel");
+        var glidInput = document.getElementById("glidInput");
+        var searchId = document.getElementById("searchId");
+        var cancelId = document.getElementById("cancelId");
+        var displayTableDiv = document.getElementById("displayTableDiv");
+        var displayTable = document.getElementById("displayTable");
+
+          //Update this to your logic...
+          if(searchOptions.value === "arc") {
+            reasonCodeLabel.style.display="";
+            reasonCodeInput.style.display="";
+            codeRangeLabel.style.display = 'none';
+            codeRangeFromInput.style.display = 'none';
+            codeRangeToInput.style.display = 'none';
+            descriptionLabel.style.display = 'none';
+            descriptionInput.style.display = 'none';
+            glidLabel.style.display = 'none';
+            glidInput.style.display = 'none';
+          } else if(searchOptions.value === "acr") {
+            codeRangeLabel.style.display = "";
+            codeRangeFromInput.style.display = "";
+            codeRangeToInput.style.display = "";
+            reasonCodeLabel.style.display = 'none';
+            reasonCodeInput.style.display = 'none';
+            descriptionLabel.style.display = 'none';
+            descriptionInput.style.display = 'none';
+            glidLabel.style.display = 'none';
+            glidInput.style.display = 'none';
+          } else if(searchOptions.value === "eDesc") {
+            descriptionLabel.style.display = "";
+            descriptionInput.style.display = "";
+            reasonCodeLabel.style.display = 'none';
+            reasonCodeInput.style.display = 'none';
+            codeRangeLabel.style.display = 'none';
+            codeRangeFromInput.style.display = 'none';
+            codeRangeToInput.style.display = 'none';
+            glidLabel.style.display = 'none';
+            glidInput.style.display = 'none';
+          } else if(searchOptions.value === "glid") {
+            glidLabel.style.display = "";
+            glidInput.style.display = "";
+            reasonCodeLabel.style.display = 'none';
+            reasonCodeInput.style.display = 'none';
+            codeRangeLabel.style.display = 'none';
+            codeRangeFromInput.style.display = 'none';
+            codeRangeToInput.style.display = 'none';
+            descriptionLabel.style.display = 'none';
+            descriptionInput.style.display = 'none';
+          }
+          
+          if(searchOptions.value === "glid" || searchOptions.value === "eDesc" || searchOptions.value === "acr" || searchOptions.value === "arc") {
+            searchId.style.display = "";
+            cancelId.style.display = "";
+          }
+          
+          if(searchOptions.value === "0") {
+            searchId.style.display = "none";
+            cancelId.style.display = "none";
+            glidLabel.style.display = 'none';
+            glidInput.style.display = 'none';
+            reasonCodeLabel.style.display = 'none';
+            reasonCodeInput.style.display = 'none';
+            codeRangeLabel.style.display = 'none';
+            codeRangeFromInput.style.display = 'none';
+            codeRangeToInput.style.display = 'none';
+            descriptionLabel.style.display = 'none';
+            descriptionInput.style.display = 'none';
+            displayTableDiv.style.display = "none"; 
+            displayTable.style.display = "none";   
+          }
+    }
+        
+        
+        function search() { 
+            
+           // document.getElementById("displayTableDiv").style.display = ""; 
+           // document.getElementById("displayTable").style.display = ""; 
+            
+            ajaxCall();
+        }
+        
+        function cancel() {
+            document.getElementById("displayTableDiv").style.display = "none"; 
+            document.getElementById("displayTable").style.display = "none";
+        }
+        
+        </script>
+        
+    </head>
+<body>
+<form id="AdjustmentCodeEnquiry" name="AdjustmentCodeEnquiryForm" class="css_table marginTop15" autocomplete="off">
+<div style="display: flex;position: absolute; margin-top: 10px;left: 10px;">
+<label>Search</label>
+<select name="searchOptions" id="searchOptionsId" onchange="changeDisplay()">
+     <option value="0">Select Search Options</option>
+  <option value="arc">Adjustment Reason Code</option>
+  <option value="acr">Adjustment Code Range</option>
+  <option value="eDesc">English Description</option>
+  <option value="glid">GLID</option>
+</select>
+</div><br><br>
+
+<label id="reasonCodeLabel" style="display: none">Adjustment Reason Code :</label><input type="text" name="reasonCode" id="reasonCodeInput" style="display: none"/><br/>
+<label id="codeRangeLabel" style="display: none">Adjustment Code Range :</label><input type="text" name="codeRangeFrom" id="codeRangeFromInput" style="display: none"/> <input type="text" name="codeRangeTo" id="codeRangeToInput" style="display: none"/><br/>
+<label id="descriptionLabel" style="display: none">English Description : </label><input type="text" name="description" id="descriptionInput" style="display: none"/><br/>
+<label id="glidLabel" style="display: none">GLID : </label><input type="text" name="glid" id="glidInput" style="display: none"/><br/>
+
+
+<input type="button" value="Search" id="searchId" style="display: none" onclick='search();'/>
+<input type="button" value="Cancel" id="cancelId" style="display: none" onclick='cancel();'/>
+<br/><br/><br/>
+<div id="displayTableDiv" style="display: none;">
+  <table id="displayTable" style="display: none; width: 100%" cellpadding="1" cellspacing="0" border="3">
+    <tr align="center">
+        <td class="lbl" style="color: white;background: black;">Created_T</td>
+      <td class="lbl" style="color: white;background: black;">ADJCode</td>
+      <td class="lbl" style="color: white;background: black;">English Description</td>
+      <td class="lbl" style="color: white;background: black;">Chinese Description</td>
+      <td class="lbl" style="color: white;background: black;">GLID</td>
+    </tr>
+    <tr>
+      <td align="center">04/02/2022 23:59</td>
+      <td align="center">1</td>
+      <td align="center">Mobile Service Fee</td>
+       <td align="center">相關搜尋</td>
+      <td align="center">145084</td>
+    </tr>
+    <tr>
+      <td align="center">04/03/2022 22:22</td>
+      <td align="center">2</td>
+      <td align="center">License Fee</td>
+       <td align="center">相關搜尋</td>
+      <td align="center">145085</td>
+    </tr>
+    <tr>
+      <td align="center">04/04/2022 09:22</td>
+      <td align="center">3</td>
+      <td align="center">Local Call Usage</td>
+       <td align="center">相關搜尋</td>
+      <td align="center">145086</td>
+    </tr>
+    <tr>
+      <td align="center">02/01/2022 15:25</td>
+      <td align="center">4</td>
+      <td align="center">Local Data Fee</td>
+       <td align="center">相關搜尋</td>
+      <td align="center">145087</td>
+    </tr><!-- comment -->
+  </table> 
+</div>
+
+<!-- Dynamic Table -->
+<hr />
+<div id="dynamicTable"></div>
+
+
+</form>
+
+</body>
+</html>

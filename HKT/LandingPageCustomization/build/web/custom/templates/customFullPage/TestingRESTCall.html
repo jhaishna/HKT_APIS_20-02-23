@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"> </script>
+        <script type="text/javascript"><!-- comment -->
+        function GenerateTable() {
+            var criteriaObject = [{"field":"Domain","value":"Reason Codes-*"}];
+                var reasonCodeValue = document.getElementById("reasonCodeInput");
+                if(reasonCodeValue) {
+                  criteriaObject.push({"field":"AdjustmentCode","value":reasonCodeValue.value});
+                }
+               $.ajax({
+                    type: "POST",
+                    url: "http://10.166.4.2:8001/bc/webresources/v1.0/private/search",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({
+                            searchTemplateName : 'AdjustmentCodeEnquiry',
+                            criterias : criteriaObject
+                        }),
+                    processData: false,
+                    beforeSend: function (xhr) {
+                        util.setRequestHeader(xhr)
+                    },
+                    dataType: "json",
+  
+                // Function to call when to
+                // request is ok 
+                success: function (data) {
+                    //var response = JSON.stringify(data);
+                    
+                    console.log(data);
+                    
+       
+                },
+  
+                // Error handling 
+                error: function (error) {
+                    console.log(`Error ${error}`);
+                }
+            });
+        }
+        
+        function changeDisplay() {
+        var searchOptions = document.getElementById("searchOptionsId");
+        var reasonCodeLabel = document.getElementById("reasonCodeLabel");
+        var reasonCodeInput = document.getElementById("reasonCodeInput");
+        var codeRangeLabel = document.getElementById("codeRangeLabel");
+        var codeRangeFromInput = document.getElementById("codeRangeFromInput");
+        var codeRangeLabel = document.getElementById("codeRangeLabel");
+        var codeRangeToInput = document.getElementById("codeRangeToInput");
+        var descriptionLabel = document.getElementById("descriptionLabel");
+        var descriptionInput = document.getElementById("descriptionInput");
+        var glidLabel = document.getElementById("glidLabel");
+        var glidInput = document.getElementById("glidInput");
+        var searchId = document.getElementById("searchId");
+        var cancelId = document.getElementById("cancelId");
+        var displayTableDiv = document.getElementById("displayTableDiv");
+        var displayTable = document.getElementById("displayTable");
+
+          //Update this to your logic...
+          if(searchOptions.value === "arc") {
+            reasonCodeLabel.style.display="";
+            reasonCodeInput.style.display="";
+            codeRangeLabel.style.display = 'none';
+            codeRangeFromInput.style.display = 'none';
+            codeRangeToInput.style.display = 'none';
+            descriptionLabel.style.display = 'none';
+            descriptionInput.style.display = 'none';
+            glidLabel.style.display = 'none';
+            glidInput.style.display = 'none';
+          } else if(searchOptions.value === "acr") {
+            codeRangeLabel.style.display = "";
+            codeRangeFromInput.style.display = "";
+            codeRangeToInput.style.display = "";
+            reasonCodeLabel.style.display = 'none';
+            reasonCodeInput.style.display = 'none';
+            descriptionLabel.style.display = 'none';
+            descriptionInput.style.display = 'none';
+            glidLabel.style.display = 'none';
+            glidInput.style.display = 'none';
+          } else if(searchOptions.value === "eDesc") {
+            descriptionLabel.style.display = "";
+            descriptionInput.style.display = "";
+            reasonCodeLabel.style.display = 'none';
+            reasonCodeInput.style.display = 'none';
+            codeRangeLabel.style.display = 'none';
+            codeRangeFromInput.style.display = 'none';
+            codeRangeToInput.style.display = 'none';
+            glidLabel.style.display = 'none';
+            glidInput.style.display = 'none';
+          } else if(searchOptions.value === "glid") {
+            glidLabel.style.display = "";
+            glidInput.style.display = "";
+            reasonCodeLabel.style.display = 'none';
+            reasonCodeInput.style.display = 'none';
+            codeRangeLabel.style.display = 'none';
+            codeRangeFromInput.style.display = 'none';
+            codeRangeToInput.style.display = 'none';
+            descriptionLabel.style.display = 'none';
+            descriptionInput.style.display = 'none';
+          }
+          
+          if(searchOptions.value === "glid" || searchOptions.value === "eDesc" || searchOptions.value === "acr" || searchOptions.value === "arc") {
+            searchId.style.display = "";
+            cancelId.style.display = "";
+          }
+          
+          if(searchOptions.value === "0") {
+            searchId.style.display = "none";
+            cancelId.style.display = "none";
+            glidLabel.style.display = 'none';
+            glidInput.style.display = 'none';
+            reasonCodeLabel.style.display = 'none';
+            reasonCodeInput.style.display = 'none';
+            codeRangeLabel.style.display = 'none';
+            codeRangeFromInput.style.display = 'none';
+            codeRangeToInput.style.display = 'none';
+            descriptionLabel.style.display = 'none';
+            descriptionInput.style.display = 'none';
+            displayTableDiv.style.display = "none"; 
+            displayTable.style.display = "none";   
+          }
+    }
+        
+        
+        function search() { 
+            
+           // document.getElementById("displayTableDiv").style.display = ""; 
+           // document.getElementById("displayTable").style.display = ""; 
+            
+            GenerateTable();
+        }
+        
+        function cancel() {
+            document.getElementById("displayTableDiv").style.display = "none"; 
+            document.getElementById("displayTable").style.display = "none";
+        }
+        
+        </script>
+        
+    </head>
+<body>
+<form id="AdjustmentCodeEnquiry" name="AdjustmentCodeEnquiryForm" class="css_table marginTop15" autocomplete="off">
+<div style="display: flex;position: absolute; margin-top: 10px;left: 10px;">
+<label>Search</label>
+<select name="searchOptions" id="searchOptionsId" onchange="changeDisplay()">
+     <option value="0">Select Search Options</option>
+  <option value="arc">Adjustment Reason Code</option>
+  <option value="acr">Adjustment Code Range</option>
+  <option value="eDesc">English Description</option>
+  <option value="glid">GLID</option>
+</select>
+</div><br><br>
+
+<label id="reasonCodeLabel" style="display: none">Adjustment Reason Code :</label><input type="text" name="reasonCode" id="reasonCodeInput" style="display: none"/><br/>
+<label id="codeRangeLabel" style="display: none">Adjustment Code Range :</label><input type="text" name="codeRangeFrom" id="codeRangeFromInput" style="display: none"/> <input type="text" name="codeRangeTo" id="codeRangeToInput" style="display: none"/><br/>
+<label id="descriptionLabel" style="display: none">English Description : </label><input type="text" name="description" id="descriptionInput" style="display: none"/><br/>
+<label id="glidLabel" style="display: none">GLID : </label><input type="text" name="glid" id="glidInput" style="display: none"/><br/>
+
+
+<input type="button" value="Search" id="searchId" style="display: none" onclick='search();'/>
+<input type="button" value="Cancel" id="cancelId" style="display: none" onclick='cancel();'/>
+        
+    </body>
+</html>

@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Built-By: Oracle
+Specification-Title: BillingCareCustomizations
+Specification-Version: 1.0
+Implementation-Title: BillingCareCustomizations
+Implementation-Version: 1.0
+Implementation-Vendor: Oracle
+Extension-Name: BillingCareCustomizations
